@@ -82,7 +82,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import data from "~/data";
 import {computed} from "vue";
 
@@ -92,11 +92,11 @@ const itemsPerPage = 4; // 每頁顯示數量
 const dialog = ref(false);
 const dialogStates = ref(Array(dataList.value.length).fill(false));
 
-const openDialog = (index : number)=>{
+const openDialog = (index)=>{
   dialogStates.value[index] = true;
 };
 
-const closeDialog = (index : number) => {
+const closeDialog = (index) => {
   dialogStates.value[index] = false;
 };
 

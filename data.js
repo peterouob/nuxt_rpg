@@ -1,4 +1,4 @@
-const products : Object = [
+const products  = [
     {
         id:"123",
         district:"a",

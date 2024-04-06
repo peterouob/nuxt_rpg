@@ -49,11 +49,11 @@
   </div>
 </template>
 
-<script setup lang="ts">
-let knowledge : number = 40;
-let knowledge2 : number = 10;
-let knowledge3 : number = 70;
-let knowledge4 : number = 100;
+<script setup>
+let knowledge = 40;
+let knowledge2  = 10;
+let knowledge3  = 70;
+let knowledge4  = 100;
 </script>
 
 <style scoped>

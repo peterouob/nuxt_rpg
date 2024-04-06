@@ -56,7 +56,7 @@
 
 <script setup>
 import { ref, computed } from 'vue';
-import data from "~/data.ts";
+import data from "~/data";
 
 const items = ref(data);
 const dialogStates = ref(Array(items.value.length).fill(false));
