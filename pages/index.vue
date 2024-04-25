@@ -43,7 +43,7 @@
   </v-container>
 </template>
 <script setup>
-import {userStore} from "~/store/user.js";
+import {userStore} from "../store/user.js";
 const username = ref("")
 const password = ref("")
 const login = userStore()

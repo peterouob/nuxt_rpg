@@ -5,7 +5,7 @@
       <v-col cols="12">
         <v-row>
           <v-col
-              v-for="(data,i) in paginatedData"
+              v-for="(data,i) in filteredData"
               :key="i"
               cols="12"
               lg="4"
@@ -36,7 +36,9 @@
             </v-dialog>
 
             <!--            lg為大屏幕,sm為小-->
-            <v-card class="mx-auto pb-2" @click="openDialog(i)">
+            <v-card
+                class="mx-auto pb-2"
+                @click="openDialog(i)">
               <v-img :src="data.img" height="200px">
                 <template v-slot:placeholder>
                   <v-row
@@ -45,26 +47,25 @@
                       justify="center"
                   >
                     <!--                    載入條-->
-                                        <v-progress-circular
-                                          color="grey lighten-5"
-                                          indeterminate
-                                        ></v-progress-circular>
+                    <v-progress-circular
+                        color="grey lighten-5"
+                        indeterminate
+                    ></v-progress-circular>
                   </v-row>
                 </template>
               </v-img>
 
               <v-card-title class="text-capitalize">
                 {{data.name}}
+                {{data.displace}}
               </v-card-title>
             </v-card>
           </v-col>
         </v-row>
       </v-col>
     </v-row>
-
     <v-row>
-      <v-col
-          class="me-auto"
+      <v-col class="me-auto"
           cols="right"
       >
         <v-sheet class="pa-2 ma-2">
@@ -83,14 +84,19 @@
 </template>
 
 <script setup>
-import data from "~/data";
+import data from "../data/data.js";
 import {computed} from "vue";
-
+import {sendStore} from "~/store/send_store";
+import {userStore} from "~/store/user.js";
 const dataList = ref(data);
 const currentPage = ref(1);
 const itemsPerPage = 4; // 每頁顯示數量
 const dialog = ref(false);
 const dialogStates = ref(Array(dataList.value.length).fill(false));
+const usesendStore = sendStore()
+const useUserStore = userStore()
+
+const filteredData = dataList.value.filter(item => item.displace === true);
 
 const openDialog = (index)=>{
   dialogStates.value[index] = true;
@@ -119,6 +125,8 @@ const previousPage = () => {
 const nextPage = () => {
   currentPage.value++;
 };
+
+
 </script>
 
 <style scoped>

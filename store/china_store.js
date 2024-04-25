@@ -1,7 +1,8 @@
 import {defineStore} from "pinia";
 
-export const userStore = defineStore('user',{
+export const userStore = defineStore('china',{
     persist:true,
+    strict: true,
     state:()=>({
         isLogin  : false,
     }),
@@ -10,6 +11,6 @@ export const userStore = defineStore('user',{
             if (username === "admin" && password === "admin") {
                 this.isLogin = true
             }
-        },
-    },
+        }
+    }
 })

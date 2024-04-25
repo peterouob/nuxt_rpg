@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   build: {
     transpile: ['vuetify'],
   },
+
   modules: [
     (_options, nuxt) => {
       nuxt.hooks.hook('vite:extendConfig', (config) => {
@@ -13,9 +14,7 @@ export default defineNuxtConfig({
       })
     },
     '@pinia/nuxt',
-    '@pinia-plugin-persistedstate/nuxt',
-
-    //...
+    '@pinia-plugin-persistedstate/nuxt'
   ],
   vite: {
     vue: {

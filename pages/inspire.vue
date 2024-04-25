@@ -56,7 +56,7 @@
 
 <script setup>
 import { ref, computed } from 'vue';
-import data from "~/data";
+import data from "../data/npc_data.js";
 
 const items = ref(data);
 const dialogStates = ref(Array(items.value.length).fill(false));
@@ -65,17 +65,17 @@ const itemsPerPage = 1;
 const selectedRegion = ref('');
 
 const regions = computed(() => {
-  const uniqueRegions = new Set(items.value.map(item => item.district));
+  const uniqueRegions = new Set(items.value.map(item => item.place));
   return Array.from(uniqueRegions);
 });
 
 const groupedItems = computed(() => {
   const groups = {};
   items.value.forEach(item => {
-    if (!groups[item.district]) {
-      groups[item.district] = [];
+    if (!groups[item.place]) {
+      groups[item.place] = [];
     }
-    groups[item.district].push(item);
+    groups[item.place].push(item);
   });
   return Object.keys(groups).map(region => ({
     region,

@@ -27,13 +27,15 @@
       fixed
       app
     >
-      <v-toolbar-title>永世不解的亡國資謎</v-toolbar-title>
+      <v-toolbar-title @click="router.push('/')">永世不解的亡國資謎</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-app-bar-nav-icon @click="drawer = !drawer" />
     </v-app-bar>
 </template>
 <script setup>
 import {userStore} from "~/store/user.js";
+
+const router = useRouter()
 
 const login = userStore()
 let clipped = ref(false);
