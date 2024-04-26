@@ -73,7 +73,7 @@
       </v-col>
       <v-col cols="left">
         <v-sheet class="pa-2 ma-2 ml-16">
-          <v-btn @click="nextPage" :disabled="currentPage === pageCount" v-show="paginatedData.length === itemsPerPage">Next</v-btn>
+          <v-btn @click="nextPage" :disabled="currentPage === pageCount" v-show="paginatedData.length > itemsPerPage">Next</v-btn>
         </v-sheet>
       </v-col>
     </v-row>

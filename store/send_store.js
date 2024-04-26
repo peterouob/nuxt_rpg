@@ -22,7 +22,7 @@ export const sendStore = defineStore('send',{
         formalin:false,//福馬林
         sweating:false,//出汗劑
         sweetSweating:false,//香汗
-        mouthWater:false,//很臭的口水
+        mouthWater:false,//駱駝的口水
         finger:false,//指紋採集樣本
         lookmouth:false,//目擊者口露
         pencile:false,//偵查筆錄
@@ -95,8 +95,12 @@ export const sendStore = defineStore('send',{
             },
             setDieProve() {
                 onMounted(() => {
-                    this.dieProve = true;
+                    if(this.placePoint === true && this.knife === true && this.diePeople === true)this.dieProve = true;
                     window.localStorage.setItem("dieProve", JSON.stringify(this.dieProve));
+                    window.localStorage.removeItem("placePoint");
+                    window.localStorage.removeItem("knife")
+                    window.localStorage.removeItem("diePeople")
+
                 });
             },
             setPeopleProve() {
@@ -128,14 +132,17 @@ export const sendStore = defineStore('send',{
             },
             setDiePeople() {
                 onMounted(() => {
-                    this.diePeople = true;
+                    if(this.formalin === true)this.diePeople = true;
                     window.localStorage.setItem("diePeople", JSON.stringify(this.diePeople));
+                    window.localStorage.removeItem("formalin");
                 });
             },
             setFormalin() {
                 onMounted(() => {
-                    this.formalin = true;
+                    if(this.sweetSweating === true && this.mouthWater === true)this.formalin = true;
                     window.localStorage.setItem("formalin", JSON.stringify(this.formalin));
+                    window.localStorage.removeItem("sweetSweating")
+                    window.localStorage.removeItem("mouthWater")
                 });
             },
             setSweating() {
@@ -146,8 +153,9 @@ export const sendStore = defineStore('send',{
             },
             setSweetSweating() {
                 onMounted(() => {
-                    this.sweetSweating = true;
+                    if(this.sweating === true)this.sweetSweating = true;
                     window.localStorage.setItem("sweetSweating", JSON.stringify(this.sweetSweating));
+                    window.localStorage.removeItem("sweating")
                 });
             },
             setMouthWater() {

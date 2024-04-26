@@ -114,11 +114,21 @@ switch (index){
     goBack();
     break;
   case "diePeople":
-    useSend.setDiePeople();
+    if(useSend.formalin === false){
+      dialog = true;
+    }else{
+      useSend.setDiePeople();
+      dialog = false;
+    }
     goBack();
     break;
   case "formalin":
-    useSend.setFormalin();
+    if(useSend.sweetSweating === false && useSend.mouthWater === false){
+      dialog = true;
+    }else{
+      useSend.setFormalin();
+      dialog = false;
+    }
     goBack();
     break;
   case "sweating":
@@ -126,7 +136,12 @@ switch (index){
     goBack();
     break;
   case "sweetSweating":
-    useSend.setSweetSweating();
+    if(useSend.sweating === false){
+      dialog = true;
+    }else{
+      useSend.setSweetSweating();
+      dialog = false;
+    }
     goBack();
     break;
   case "mouthWater":
