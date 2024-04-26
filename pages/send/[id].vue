@@ -1,32 +1,43 @@
 <template>
   <div>
-
+    <v-alert
+        density="compact"
+        text="似乎還缺少什麼!"
+        title="提示"
+        type="warning"
+        v-model="dialog"
+    ></v-alert>
   </div>
+  {{dialog}}
 </template>
 
 <script setup>
 import "../../store/send_store.js"
 import {sendStore} from "~/store/send_store.js";
-import data from "~/data/data";
-import {userStore} from "~/store/user.js";
+import {chinaStore} from "~/store/china_store.js";
+import {europeStore} from "~/store/europe_store.js";
+import {japanStore} from "~/store/japan_store.js";
 
+
+let dialog = ref(false)
 const useSend = sendStore()
+const useChina = chinaStore()
+const useEurope = europeStore()
+const useJapan = japanStore()
+
 const route = useRoute()
 const router = useRouter()
 let index = route.params.id
-let i = 0
+
 switch (index){
   //send
-  case "clue1":
-    useSend.setClue1();
-    goBack();
-    break;
-  case "clue2":
-    useSend.setClue2();
-    goBack();
-    break;
-  case "clue3":
-    useSend.setClue3();
+  case "getClue": // 獲得線索
+    if(useSend.peopleProve === false){
+      dialog = true;
+    }else{
+      useSend.setClue();
+      dialog = false;
+    }
     goBack();
     break;
   case "babyClue":
@@ -34,11 +45,21 @@ switch (index){
     goBack();
     break;
   case "peopleProve":
-     useSend.setPeopleProve();
+    if(useSend.bigBag === false){
+      dialog = true;
+    }else{
+      useSend.setPeopleProve();
+      dialog = false;
+    }
      goBack();
      break;
   case "placePoint":
-    useSend.setPlacePoint();
+    if(useSend.pencile === false){
+      dialog = true;
+    }else{
+      useSend.setPlacePoint();
+      dialog = false;
+    }
     goBack();
     break;
   case "prove":
@@ -58,7 +79,12 @@ switch (index){
     goBack();
     break;
   case "babyStone":
-    useSend.setBabyStone();
+    if(useEurope.chocolate === false && useChina.bitfultea === false && useJapan.cat === false){
+      dialog = true;
+    }else{
+      useSend.setBabyStone();
+      dialog = false
+    }
     goBack();
     break;
   case "dieProve":
@@ -66,7 +92,12 @@ switch (index){
     goBack();
     break;
   case "goOut":
-    useSend.setGoOut();
+    if(useSend.prove === false){
+      dialog = true;
+    }else{
+      useSend.setGoOut();
+      dialog = false
+    }
     goBack();
     break;
   case "greatGoOut":
@@ -74,7 +105,12 @@ switch (index){
     goBack();
     break;
   case "bigBag":
-    useSend.setBigBag();
+    if(useSend.babyStone === false){
+      dialog = true
+    }else{
+      useSend.setBigBag();
+      dialog = false
+    }
     goBack();
     break;
   case "diePeople":
@@ -97,8 +133,28 @@ switch (index){
     useSend.setMouthWater();
     goBack();
     break;
+  case "finger":
+    useSend.setFinger();
+    goBack();
+    break;
+  case "lookmouth":
+    useSend.setLookMouth();
+    goBack();
+    break;
+  case "pencile":
+    if(useSend.lookmouth === false && useSend.finger === false){
+      dialog = true ;
+    }else{
+      useSend.setPencile();
+      dialog = false;
+    }
+    goBack();
+    break;
 }
 function goBack(){
-  router.push("/")
+  setTimeout(async ()=>{
+    await router.push("/")
+  },5000)
 }
+
 </script>

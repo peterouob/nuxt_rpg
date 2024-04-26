@@ -31,7 +31,7 @@ export const japanStore = defineStore('japan',{
         bigGood:false,//大吉籤
         key:false,//寶庫鑰匙
         rice:false,//阿托米克
-        cat:false,//招財貓
+        cat:false,//招財貓護身符
         giou:false,//祭祀用酒
         gioubotal:false,//釀酒容器
     }),

@@ -85,6 +85,10 @@ switch (index){
     useChina.setGirl();
     goBack();
     break;
+  case "bitfultea":
+    useChina.setbitfultea();
+    goBack();
+    break;
 }
 function goBack(){
   router.push("/")

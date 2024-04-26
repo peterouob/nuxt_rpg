@@ -99,6 +99,10 @@ switch (index) {
     useEurope.setrelicLegend();
     goBack();
     break;
+  case "chocolate":
+    useEurope.setchocolate();
+    goBack();
+    break;
 }
 function goBack(){
   router.push("/");

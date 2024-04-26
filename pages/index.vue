@@ -41,9 +41,16 @@
         </v-card-actions>
       </v-card>
   </v-container>
+
+  <div>
+    {{useSend.$state}}
+
+  </div>
 </template>
 <script setup>
 import {userStore} from "../store/user.js";
+import {sendStore} from "~/store/send_store.js";
+const useSend = sendStore()
 const username = ref("")
 const password = ref("")
 const login = userStore()

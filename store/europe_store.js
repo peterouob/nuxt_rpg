@@ -1,4 +1,5 @@
 import {defineStore} from "pinia";
+import {onMounted} from "vue";
 
 export const europeStore = defineStore('europe',{
     persist:true,
@@ -26,6 +27,7 @@ export const europeStore = defineStore('europe',{
         gold:false,//黃金任務
         synthesisPlatform:false,//和成台
         relicLegend:false,//遺跡傳說
+        chocolate:false,//巧克力
     }),
     actions: {
         setFarmeone() {
@@ -159,6 +161,12 @@ export const europeStore = defineStore('europe',{
             onMounted(() => {
                 window.localStorage.setItem("relicLegend", JSON.stringify(this.relicLegend));
             });
+        },
+        setchocolate(){
+            this.chocolate = true;
+            onMounted(()=>{
+                window.localStorage.setItem("chocolate",JSON.stringify(this.chocolate))
+            })
         }
     }
 })

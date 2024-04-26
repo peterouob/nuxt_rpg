@@ -1,4 +1,5 @@
 import {defineStore} from "pinia";
+import {onMounted} from "vue";
 
 export const chinaStore = defineStore('china',{
     persist:true,
@@ -22,6 +23,7 @@ export const chinaStore = defineStore('china',{
         gotyou:false,//抓捕令
         success:false,//抓捕成功
         girl:false,//女蝸時
+        bitfultea:false,//美人茶
     }),
     actions: {
         setTopgood() {
@@ -132,5 +134,11 @@ export const chinaStore = defineStore('china',{
                 window.localStorage.setItem("girl", JSON.stringify(this.girl));
             });
         },
+        setbitfultea(){
+            this.bitfultea = true;
+            onMounted(()=>{
+                window.localStorage.setItem("bitfultea",JSON.stringify(this.bitfultea))
+            })
+        }
     }
 })
