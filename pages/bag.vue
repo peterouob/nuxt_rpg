@@ -5,7 +5,7 @@
       <v-col cols="12">
         <v-row>
           <v-col
-              v-for="(data,i) in filteredData"
+              v-for="(data,i) in paginatedData"
               :key="i"
               cols="12"
               lg="4"
@@ -57,7 +57,6 @@
 
               <v-card-title class="text-capitalize">
                 {{data.name}}
-                {{data.displace}}
               </v-card-title>
             </v-card>
           </v-col>
@@ -110,12 +109,12 @@ const closeDialog = (index) => {
 const paginatedData = computed(() => {
   const startIndex = (currentPage.value - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  return dataList.value.slice(startIndex, endIndex);
+  return filteredData.slice(startIndex, endIndex);
 });
 
 // 計算總頁數
 const pageCount = computed(() => {
-  return Math.ceil(dataList.value.length / itemsPerPage);
+  return Math.ceil(filteredData.length / itemsPerPage);
 });
 
 const previousPage = () => {

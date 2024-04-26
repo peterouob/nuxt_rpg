@@ -4,6 +4,7 @@ export const sendStore = defineStore('send',{
     persist:true,
     strict: true,
     state:()=>({
+        //TODO send
         babyClue:false,//寶物線索
         clue1:false,//線索1
         clue2:false,//線索2
@@ -24,13 +25,133 @@ export const sendStore = defineStore('send',{
         sweating:false,//出汗劑
         sweetSweating:false,//香汗
         mouthWater:false,//很臭的口水
+
+
+        //TODO china
+
+
+        //TODO europe 開始接任務後顯示在新的頁面
     }),
-    actions:{
-        setBabyClue(){
-            this.babyClue = true
-            onMounted(()=>{
-                window.localStorage.setItem("babyClue",JSON.stringify(this.babyClue))
-            })
+        actions: {
+            setBabyClue() {
+                this.babyClue = true;
+                onMounted(() => {
+                    window.localStorage.setItem("babyClue", JSON.stringify(this.babyClue));
+                });
+            },
+            setClue1() {
+                this.clue1 = true;
+                onMounted(() => {
+                    window.localStorage.setItem("clue1", JSON.stringify(this.clue1));
+                });
+            },
+            setClue2() {
+                this.clue2 = true;
+                onMounted(() => {
+                    window.localStorage.setItem("clue2", JSON.stringify(this.clue2));
+                });
+            },
+            setClue3() {
+                this.clue3 = true;
+                onMounted(() => {
+                    window.localStorage.setItem("clue3", JSON.stringify(this.clue3));
+                });
+            },
+            setPlacePoint() {
+                this.placePoint = true;
+                onMounted(() => {
+                    window.localStorage.setItem("placePoint", JSON.stringify(this.placePoint));
+                });
+            },
+            setProve() {
+                this.prove = true;
+                onMounted(() => {
+                    window.localStorage.setItem("prove", JSON.stringify(this.prove));
+                });
+            },
+            setGotYou() {
+                this.gotYou = true;
+                onMounted(() => {
+                    window.localStorage.setItem("gotYou", JSON.stringify(this.gotYou));
+                });
+            },
+            setWhite() {
+                this.white = true;
+                onMounted(() => {
+                    window.localStorage.setItem("white", JSON.stringify(this.white));
+                });
+            },
+            setDieTime() {
+                this.dieTime = true;
+                onMounted(() => {
+                    window.localStorage.setItem("dieTime", JSON.stringify(this.dieTime));
+                });
+            },
+            setBabyStone() {
+                this.babyStone = true;
+                onMounted(() => {
+                    window.localStorage.setItem("babyStone", JSON.stringify(this.babyStone));
+                });
+            },
+            setDieProve() {
+                this.dieProve = true;
+                onMounted(() => {
+                    window.localStorage.setItem("dieProve", JSON.stringify(this.dieProve));
+                });
+            },
+            setPeopleProve() {
+                this.peopleProve = true;
+                onMounted(() => {
+                    window.localStorage.setItem("peopleProve", JSON.stringify(this.peopleProve));
+                });
+            },
+            setGoOut() {
+                this.goOut = true;
+                onMounted(() => {
+                    window.localStorage.setItem("goOut", JSON.stringify(this.goOut));
+                });
+            },
+            setGreatGoOut() {
+                this.greatGoOut = true;
+                onMounted(() => {
+                    window.localStorage.setItem("greatGoOut", JSON.stringify(this.greatGoOut));
+                });
+            },
+            setBigBag() {
+                this.bigBag = true;
+                onMounted(() => {
+                    window.localStorage.setItem("bigBag", JSON.stringify(this.bigBag));
+                });
+            },
+            setDiePeople() {
+                this.diePeople = true;
+                onMounted(() => {
+                    window.localStorage.setItem("diePeople", JSON.stringify(this.diePeople));
+                });
+            },
+            setFormalin() {
+                this.formalin = true;
+                onMounted(() => {
+                    window.localStorage.setItem("formalin", JSON.stringify(this.formalin));
+                });
+            },
+            setSweating() {
+                this.sweating = true;
+                onMounted(() => {
+                    window.localStorage.setItem("sweating", JSON.stringify(this.sweating));
+                });
+            },
+            setSweetSweating() {
+                this.sweetSweating = true;
+                onMounted(() => {
+                    window.localStorage.setItem("sweetSweating", JSON.stringify(this.sweetSweating));
+                });
+            },
+            setMouthWater() {
+                this.mouthWater = true;
+                onMounted(() => {
+                    window.localStorage.setItem("mouthWater", JSON.stringify(this.mouthWater));
+                });
+            },
         }
-    }
 })

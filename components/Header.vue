@@ -59,7 +59,12 @@ let items = reactive([{
     icon: 'mdi-apps',
     title: '掃碼',
     to: '/qrcode'
-  },])
+  },
+  {
+    title: '線索',
+    to:'/clue'
+  }
+])
 let miniVariant = ref(false);
 
 </script>
