@@ -75,7 +75,7 @@ switch (index){
     goBack();
     break;
   case "dieTime":
-    useSend.setDieTime();
+    useSend.setDieTime()
     goBack();
     break;
   case "babyStone":
@@ -150,6 +150,22 @@ switch (index){
     }
     goBack();
     break;
+  case "sayWrong":
+    if(useSend.dieTime === false && useSend.goOut === false){
+      dialog = true;
+    }else{
+      useSend.setSayWrong();
+      dialog = false
+    }
+    goBack();
+    break;
+  case "knife":
+    if(useSend.sayWrong === false){
+      dialog = true;
+    }else{
+      useSend.setKnife();
+      dialog = false;
+    }
 }
 function goBack(){
   setTimeout(async ()=>{

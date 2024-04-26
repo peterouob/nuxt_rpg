@@ -7,9 +7,6 @@ export const sendStore = defineStore('send',{
         //TODO send
         babyClue:false,//寶物線索
         clue:false,//線索集合
-        clue1:false,//線索1
-        clue2:false,//線索2
-        clue3:false,//線索3
         placePoint:false,//犯罪現場
         prove:false,//辦案證明
         gotYou:false,//逮捕令
@@ -29,6 +26,8 @@ export const sendStore = defineStore('send',{
         finger:false,//指紋採集樣本
         lookmouth:false,//目擊者口露
         pencile:false,//偵查筆錄
+        sayWrong:false,//說謊證明
+        knife:false,//詭異的刀
     }),
         actions: {
             setBabyClue() {
@@ -175,6 +174,27 @@ export const sendStore = defineStore('send',{
                     window.localStorage.setItem("pencile", JSON.stringify(this.pencile));
                     window.localStorage.removeItem("lookmouth")
                     window.localStorage.removeItem("finger")
+                })
+            },
+            setSayWrong(){
+                onMounted(()=>{
+                    if(this.goOut === true && this.dieTime === true){
+                        this.sayWrong = true;
+                    }
+                    window.localStorage.setItem("sayWrong", JSON.stringify(this.pencile));
+                    window.localStorage.removeItem("goOut")
+                    window.localStorage.removeItem("dieTime")
+                })
+            },
+            setKnife(){
+                onMounted(()=>{
+                    if(this.sayWrong === true){
+                        this.knife = true;
+                        this.greatGoOut = true;
+                    }
+                    window.localStorage.setItem("knife",JSON.stringify(this.knife))
+                    window.localStorage.setItem("greatGoOut",JSON.stringify(this.greatGoOut))
+                    window.localStorage.removeItem("sayWrong")
                 })
             }
         }

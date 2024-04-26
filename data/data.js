@@ -122,6 +122,18 @@ const data  = [
             name:"偵查筆錄",
             description: "警方的偵查筆錄",
         },
+        {
+            displace: process.client ? JSON.parse(localStorage.getItem("sayWrong")) : false,
+            place: "埃及",
+            name:"說謊證明",
+            description: "看來有人說謊點點點",
+        },
+        {
+            displace: process.client ? JSON.parse(localStorage.getItem("knife")) : false,
+            place: "埃及",
+            name:"詭異的刀",
+            description: "恩～刺刺的",
+        },
         // 日本
         {
             displace: process.client ? JSON.parse(localStorage.getItem("please")) : false,
