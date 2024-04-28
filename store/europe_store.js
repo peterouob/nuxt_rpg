@@ -1,6 +1,6 @@
 import {defineStore} from "pinia";
 import {onMounted} from "vue";
-import {setDependentState, setTrueState} from "~/tool.js";
+import {removeState, setDependentState, setTrueState} from "~/tool.js";
 
 export const europeStore = defineStore('europe',{
     persist:true,
@@ -29,6 +29,7 @@ export const europeStore = defineStore('europe',{
         synthesisPlatform:false,//和成台
         relicLegend:false,//遺跡傳說
         chocolate:false,//巧克力
+        todoprove:false,//任務證明
 
         fore:false,//四葉草
         landk:false,//鐮刀和捶子
@@ -38,54 +39,25 @@ export const europeStore = defineStore('europe',{
         setLandk:setTrueState("landk"),
         setSleep:setDependentState("sleep",["landk"],true),
         setFore:setDependentState("fore",["sleep"],true),
-        setFarmeone() {
-            this.farmeone = true;
-            onMounted(() => {
-                window.localStorage.setItem("farmeone", JSON.stringify(this.farmeone));
-            });
-        },
+        setFarmeone : setTrueState("farmeone"),
         setFarmtwo() {
             this.farmtwo = true;
             onMounted(() => {
                 window.localStorage.setItem("farmtwo", JSON.stringify(this.farmtwo));
             });
         },
-        setPic() {
-            this.pic = true;
-            onMounted(() => {
-                window.localStorage.setItem("pic", JSON.stringify(this.pic));
-            });
-        },
-        setMaohxioun() {
-            this.maohxioun = true;
-            onMounted(() => {
-                window.localStorage.setItem("maohxioun", JSON.stringify(this.maohxioun));
-            });
-        },
-        setCando() {
-            this.cando = true;
-            onMounted(() => {
-                window.localStorage.setItem("cando", JSON.stringify(this.cando));
-            });
-        },
-        setSmart() {
-            this.smart = true;
-            onMounted(() => {
-                window.localStorage.setItem("smart", JSON.stringify(this.smart));
-            });
-        },
-        setMaou() {
-            this.maou = true;
-            onMounted(() => {
-                window.localStorage.setItem("maou", JSON.stringify(this.maou));
-            });
-        },
+        setPic : setTrueState("pic"),
+        setMaohxioun : setDependentState("maohxioun",["farmeone","pic"]),
+        setCando : setTrueState("cando"),
+        setSmart : setTrueState("smart"),
+        setMaou : setDependentState("maou",["cando","smart"]),
         setTodo() {
             this.todo = true;
             onMounted(() => {
                 window.localStorage.setItem("todo", JSON.stringify(this.todo));
             });
         },
+        setTodoprove : setDependentState("todoprove",["bodyhair"]),
         setDorgan() {
             this.dorgan = true;
             onMounted(() => {
@@ -140,12 +112,7 @@ export const europeStore = defineStore('europe',{
                 window.localStorage.setItem("baby", JSON.stringify(this.baby));
             });
         },
-        setBronze() {
-            this.bronze = true;
-            onMounted(() => {
-                window.localStorage.setItem("bronze", JSON.stringify(this.bronze));
-            });
-        },
+        setBronze : setDependentState("bronze",["todoprove"]),
         setIron() {
             this.iron = true;
             onMounted(() => {
@@ -164,17 +131,13 @@ export const europeStore = defineStore('europe',{
                 window.localStorage.setItem("synthesisPlatform", JSON.stringify(this.synthesisPlatform()));
             });
         },
-        setrelicLegend(){
-            this.relicLegend = true;
-            onMounted(() => {
-                window.localStorage.setItem("relicLegend", JSON.stringify(this.relicLegend));
-            });
-        },
+        setrelicLegend : setTrueState("relicLegend"),
         setchocolate(){
             this.chocolate = true;
             onMounted(()=>{
                 window.localStorage.setItem("chocolate",JSON.stringify(this.chocolate))
             })
-        }
+        },
+        removeMaohxioun:removeState("Maohxioun"),
     }
 })

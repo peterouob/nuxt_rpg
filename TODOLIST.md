@@ -9,7 +9,7 @@
 5. deploy to cloud server
 6. 雨備地圖
 
-## 流程
-1. 改pinia
-2. 改data.js
-3. 改router
+# 4/29 TODO
+- 完成歐洲邏輯
+- 補齊每個的routerCase
+- 歐洲任務資訊做成在components的，沒有等級的話會被鎖住，如果完成會跳轉到那個頁面，然後開鎖

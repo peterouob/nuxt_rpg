@@ -33,6 +33,7 @@ export const sendStore = defineStore("send", {
         rose: false,
         tong:false,//臨時通行證
         sc:false,//艷後密令
+        bodyHair:false,//體毛
     }),
     actions: {
         // Define actions
@@ -65,5 +66,6 @@ export const sendStore = defineStore("send", {
         setTong:setTrueState("tong"),
         setSc:setTrueState("sc"),
         setRose:setDependentState("rose",["sc"]),
+        setBodyHair:setTrueState("bodyHair"),
     },
 });
