@@ -29,6 +29,10 @@ export const sendStore = defineStore("send", {
         pencile: false, //偵查筆錄
         sayWrong: false, //說謊證明
         knife: false, //詭異的刀
+
+        rose: false,
+        tong:false,//臨時通行證
+        sc:false,//艷後密令
     }),
     actions: {
         // Define actions
@@ -55,5 +59,11 @@ export const sendStore = defineStore("send", {
         setPencile: setDependentState("pencile", ["lookmouth", "finger"]),
         setSayWrong: setDependentState("sayWrong", ["goOut", "dieTime"]),
         setKnife: setDependentState("knife", ["sayWrong"]),
+
+    //     補router
+        setSend:setTrueState("send"),
+        setTong:setTrueState("tong"),
+        setSc:setTrueState("sc"),
+        setRose:setDependentState("rose",["sc"]),
     },
 });

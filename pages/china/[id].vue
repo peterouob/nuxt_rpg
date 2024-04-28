@@ -65,6 +65,10 @@ switch (index){
     useChina.setBody();
     goBack();
     break;
+  case "sofa":
+    useChina.setsofa();
+    goBack();
+    break;
   case "whiteyes":
     useChina.setWhiteyes();
     goBack();

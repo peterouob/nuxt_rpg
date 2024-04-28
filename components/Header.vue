@@ -38,10 +38,10 @@
   <v-dialog v-model="dialog">
     <v-card>
       <v-card-text v-if="useJapan.wood"><h3>
-        木頭數量:{{ num }}
+        木頭數量:{{ woodNum }}
       </h3></v-card-text>
       <v-card-text v-if="useJapan.yugi"><h3>
-        諭吉數量:{{useJapan.yugiCount}}
+        諭吉數量:{{yugiNum}}
       </h3></v-card-text>
     </v-card>
   </v-dialog>
@@ -55,7 +55,8 @@ const router = useRouter()
 const useJapan = japanStore()
 let dialog = ref(false)
 // const login = userStore()
-let num = ref(0);
+let woodNum = ref(0);
+let yugiNum = ref(0);
 let clipped = ref(false);
 let drawer = ref(false);
 let items = reactive([{
@@ -85,6 +86,7 @@ let items = reactive([{
 ])
 let miniVariant = ref(false);
 onMounted(()=>{
-  num = localStorage.getItem("woodCount")
+  woodNum = localStorage.getItem("woodCount");
+  yugiNum = localStorage.getItem("yugi");
 })
 </script>

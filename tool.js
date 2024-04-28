@@ -7,8 +7,28 @@ export function setTrueState(stateProp) {
     };
 }
 
+export function removeState(stateProp) {
+    return function () {
+        onMounted(() => {
+            window.localStorage.removeItem(stateProp);
+        });
+    };
+}
+
+export function setNumTrueState(stateProp,numStateProp,num) {
+    return function (){
+        onMounted(()=>{
+            this[stateProp] = true;
+            this[numStateProp] = num;
+            window.localStorage.setItem(stateProp,JSON.stringify(this[stateProp]));
+            window.localStorage.setItem(numStateProp,JSON.stringify(this[numStateProp]));
+        });
+    };
+}
+
+
 // Function to check dependencies and set state
-export function setDependentState(stateProp, dependencies) {
+export function setDependentState(stateProp, dependencies,type=true) {
     return function () {
         let depValues = {};
         onBeforeMount(() => {
@@ -18,7 +38,7 @@ export function setDependentState(stateProp, dependencies) {
         });
         onMounted(() => {
             if (dependencies.every((dep) => depValues[dep])) {
-                this[stateProp] = true;
+                this[stateProp] = type;
                 window.localStorage.setItem(stateProp, JSON.stringify(this[stateProp]));
                 dependencies.forEach((dep) => {
                     window.localStorage.removeItem(dep);

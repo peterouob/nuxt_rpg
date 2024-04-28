@@ -1,5 +1,6 @@
 import {defineStore} from "pinia";
 import {onMounted} from "vue";
+import {setDependentState, setTrueState} from "~/tool.js";
 
 export const europeStore = defineStore('europe',{
     persist:true,
@@ -28,8 +29,15 @@ export const europeStore = defineStore('europe',{
         synthesisPlatform:false,//和成台
         relicLegend:false,//遺跡傳說
         chocolate:false,//巧克力
+
+        fore:false,//四葉草
+        landk:false,//鐮刀和捶子
+        sleep:false,//安眠藥
     }),
     actions: {
+        setLandk:setTrueState("landk"),
+        setSleep:setDependentState("sleep",["landk"],true),
+        setFore:setDependentState("fore",["sleep"],true),
         setFarmeone() {
             this.farmeone = true;
             onMounted(() => {
