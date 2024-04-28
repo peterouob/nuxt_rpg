@@ -1,4 +1,5 @@
 import {defineStore} from "pinia";
+import {setDependentNumState} from "~/tool.js";
 
 export const japanStore = defineStore('japan',{
     persist:true,
@@ -34,187 +35,196 @@ export const japanStore = defineStore('japan',{
         cat:false,//招財貓護身符
         giou:false,//祭祀用酒
         gioubotal:false,//釀酒容器
+
+        woodCount: 0,//木頭數量
+        yugiCount: 0,
     }),
     actions: {
         setPlease() {
-            this.please = true;
             onMounted(() => {
+                this.please = true;
                 window.localStorage.setItem("please", JSON.stringify(this.please));
             });
         },
         setGraph() {
-            this.graph = true;
             onMounted(() => {
+                this.graph = true;
                 window.localStorage.setItem("graph", JSON.stringify(this.graph));
             });
         },
         setSend() {
-            this.send = true;
             onMounted(() => {
+                this.send = true;
                 window.localStorage.setItem("send", JSON.stringify(this.send));
             });
         },
         setGlasses() {
-            this.glasses = true;
             onMounted(() => {
+                this.glasses = true;
                 window.localStorage.setItem("glasses", JSON.stringify(this.glasses));
             });
         },
         setBlue() {
-            this.blue = true;
             onMounted(() => {
+                this.blue = true;
                 window.localStorage.setItem("blue", JSON.stringify(this.blue));
             });
         },
         setWood() {
-            this.wood = true;
             onMounted(() => {
+                this.wood = true;
                 window.localStorage.setItem("wood", JSON.stringify(this.wood));
+                window.localStorage.setItem("woodCount",JSON.stringify(5))
             });
         },
         setSwood() {
-            this.swood = true;
             onMounted(() => {
+                this.swood = true;
                 window.localStorage.setItem("swood", JSON.stringify(this.swood));
             });
         },
         setSfoodtail() {
-            this.sfoodtail = true;
             onMounted(() => {
+                this.sfoodtail = true;
                 window.localStorage.setItem("sfoodtail", JSON.stringify(this.sfoodtail));
             });
         },
         setFixbox() {
-            this.fixbox = true;
             onMounted(() => {
                 window.localStorage.setItem("fixbox", JSON.stringify(this.fixbox));
+                this.fixbox = true;
             });
         },
         setFoodtail() {
-            this.foodtail = true;
             onMounted(() => {
+                this.foodtail = true;
                 window.localStorage.setItem("foodtail", JSON.stringify(this.foodtail));
             });
         },
         setDai1() {
-            this.dai1 = true;
             onMounted(() => {
+                this.dai1 = true;
                 window.localStorage.setItem("dai1", JSON.stringify(this.dai1));
             });
         },
         setDai2() {
-            this.dai2 = true;
             onMounted(() => {
+                this.dai2 = true;
                 window.localStorage.setItem("dai2", JSON.stringify(this.dai2));
             });
         },
         setDai3() {
-            this.dai3 = true;
             onMounted(() => {
+                this.dai3 = true;
                 window.localStorage.setItem("dai3", JSON.stringify(this.dai3));
             });
         },
         setDai4() {
-            this.dai4 = true;
             onMounted(() => {
+                this.dai4 = true;
                 window.localStorage.setItem("dai4", JSON.stringify(this.dai4));
             });
         },
         setGiantbook() {
-            this.giantbook = true;
             onMounted(() => {
+                this.giantbook = true;
                 window.localStorage.setItem("giantbook", JSON.stringify(this.giantbook));
             });
         },
         setBook() {
-            this.book = true;
             onMounted(() => {
+                this.book = true;
                 window.localStorage.setItem("book", JSON.stringify(this.book));
             });
         },
         setAvoidsun() {
-            this.avoidsun = true;
             onMounted(() => {
+                this.avoidsun = true;
                 window.localStorage.setItem("avoidsun", JSON.stringify(this.avoidsun));
             });
         },
         setCircleWood() {
-            this.circleWood = true;
             onMounted(() => {
+                this.circleWood = true;
                 window.localStorage.setItem("circleWood", JSON.stringify(this.circleWood));
             });
         },
-        setBreaktool() {
-            this.breaktool = true;
-            onMounted(() => {
-                window.localStorage.setItem("breaktool", JSON.stringify(this.breaktool));
-            });
-        },
+        setBreaktool : setDependentNumState("breaktool",["woodCount"],3),
         setTool() {
-            this.tool = true;
             onMounted(() => {
+                if(this.breaktool === true)this.tool = true;
                 window.localStorage.setItem("tool", JSON.stringify(this.tool));
+                window.localStorage.removeItem("breaktool")
             });
         },
         setYugi() {
-            this.yugi = true;
             onMounted(() => {
+                this.yugi = true;
                 window.localStorage.setItem("yugi", JSON.stringify(this.yugi));
+                this.yugiCount = 2;
+                window.localStorage.removeItem("tool")
+                window.localStorage.removeItem("please")
             });
         },
         setLook() {
-            this.look = true;
             onMounted(() => {
+                if(this.yugi === true && this.yugiCount > 0) this.look = true;
                 window.localStorage.setItem("look", JSON.stringify(this.look));
+                this.yugi -= 1;
             });
         },
         setBoliou() {
-            this.boliou = true;
             onMounted(() => {
+                this.boliou = true;
                 window.localStorage.setItem("boliou", JSON.stringify(this.boliou));
             });
         },
         setDrewhorse() {
-            this.drewhorse = true;
             onMounted(() => {
+                this.drewhorse = true;
                 window.localStorage.setItem("drewhorse", JSON.stringify(this.drewhorse));
             });
         },
         setBigGood() {
-            this.bigGood = true;
             onMounted(() => {
+                this.bigGood = true;
                 window.localStorage.setItem("bigGood", JSON.stringify(this.bigGood));
             });
         },
         setKey() {
-            this.key = true;
             onMounted(() => {
+                this.key = true;
                 window.localStorage.setItem("key", JSON.stringify(this.key));
             });
         },
         setRice() {
-            this.rice = true;
             onMounted(() => {
+                this.rice = true;
                 window.localStorage.setItem("rice", JSON.stringify(this.rice));
             });
         },
         setCat() {
-            this.cat = true;
             onMounted(() => {
+                this.cat = true;
                 window.localStorage.setItem("cat", JSON.stringify(this.cat));
             });
         },
         setGiou() {
-            this.giou = true;
             onMounted(() => {
+                this.giou = true;
                 window.localStorage.setItem("giou", JSON.stringify(this.giou));
             });
         },
         setGioubotal() {
-            this.gioubotal = true;
             onMounted(() => {
+                this.gioubotal = true;
                 window.localStorage.setItem("gioubotal", JSON.stringify(this.gioubotal));
             });
         },
+        getOutLook(){
+            onMounted(()=>{
+                window.localStorage.removeItem("look")
+            })
+        }
     }
 })

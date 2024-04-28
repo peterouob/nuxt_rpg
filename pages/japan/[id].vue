@@ -1,5 +1,14 @@
 <template>
   <div>
+    <div>
+      <v-alert
+          density="compact"
+          text="似乎還缺少什麼!"
+          title="提示"
+          type="warning"
+          v-model="dialog"
+      ></v-alert>
+    </div>
   </div>
 </template>
 
@@ -8,8 +17,10 @@ import {japanStore} from "~/store/japan_store.js";
 
 const route = useRoute()
 let index = route.params.id
+let dialog = ref(false)
 const router = useRouter()
 const useJapan = japanStore()
+
 switch (index){
   case "please":
     useJapan.setPlease();
@@ -33,6 +44,7 @@ switch (index){
     break;
   case "wood":
     useJapan.setWood();
+    useJapan.woodCount += 1;
     goBack();
     break;
   case "swood":
@@ -84,15 +96,30 @@ switch (index){
     goBack();
     break;
   case "breaktool":
-    useJapan.setBreaktool();
+    if(useJapan.wood === false && useJapan.woodCount < 5){
+      dialog = true;
+    }else {
+      useJapan.setBreaktool();
+      dialog = false;
+    }
     goBack();
     break;
   case "tool":
-    useJapan.setTool();
+    if(useJapan.breaktool === false){
+      dialog = true;
+    }else{
+      useJapan.setTool();
+      dialog = false;
+    }
     goBack();
     break;
   case "yugi":
-    useJapan.setYugi();
+    if(useJapan.tool === false){
+      dialog = true;
+    }else{
+      useJapan.setYugi();
+      dialog = false
+    }
     goBack();
     break;
   case "look":
@@ -129,6 +156,10 @@ switch (index){
     break;
   case "gioubotal":
     useJapan.setGioubotal();
+    goBack();
+    break;
+  case "getOutLook":
+    useJapan.getOutLook();
     goBack();
     break;
 }

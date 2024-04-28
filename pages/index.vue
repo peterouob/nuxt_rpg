@@ -43,14 +43,16 @@
   </v-container>
 
   <div>
-    {{useSend.$state}}
+    {{useJapan.$state}}
 
   </div>
 </template>
 <script setup>
 import {userStore} from "../store/user.js";
 import {sendStore} from "~/store/send_store.js";
+import {japanStore} from "~/store/japan_store.js";
 const useSend = sendStore()
+const useJapan = japanStore()
 const username = ref("")
 const password = ref("")
 const login = userStore()

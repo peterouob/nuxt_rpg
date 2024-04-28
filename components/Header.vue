@@ -10,6 +10,9 @@
     >
 
     <v-list>
+      <v-list-item>
+        <v-list-item-title @click="dialog = !dialog">特殊背包</v-list-item-title>
+      </v-list-item>
       <v-list-item
           v-for="(item,i) in items"
           :key="i"
@@ -31,13 +34,28 @@
       <v-spacer></v-spacer>
       <v-app-bar-nav-icon @click="drawer = !drawer" />
     </v-app-bar>
+
+  <v-dialog v-model="dialog">
+    <v-card>
+      <v-card-text v-if="useJapan.wood"><h3>
+        木頭數量:{{ num }}
+      </h3></v-card-text>
+      <v-card-text v-if="useJapan.yugi"><h3>
+        諭吉數量:{{useJapan.yugiCount}}
+      </h3></v-card-text>
+    </v-card>
+  </v-dialog>
+
 </template>
 <script setup>
 import {userStore} from "~/store/user.js";
+import {japanStore} from "~/store/japan_store.js";
 
 const router = useRouter()
-
-const login = userStore()
+const useJapan = japanStore()
+let dialog = ref(false)
+// const login = userStore()
+let num = ref(0);
 let clipped = ref(false);
 let drawer = ref(false);
 let items = reactive([{
@@ -63,8 +81,10 @@ let items = reactive([{
   {
     title: '線索',
     to:'/clue'
-  }
+  },
 ])
 let miniVariant = ref(false);
-
+onMounted(()=>{
+  num = localStorage.getItem("woodCount")
+})
 </script>

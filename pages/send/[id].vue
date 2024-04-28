@@ -8,7 +8,6 @@
         v-model="dialog"
     ></v-alert>
   </div>
-  {{dialog}}
 </template>
 
 <script setup>

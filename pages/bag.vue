@@ -35,6 +35,7 @@
               </v-card>
             </v-dialog>
 
+<!--            特殊背包-->
             <!--            lg為大屏幕,sm為小-->
             <v-card
                 class="mx-auto pb-2"
@@ -87,6 +88,7 @@ import data from "../data/data.js";
 import {computed} from "vue";
 import {sendStore} from "~/store/send_store";
 import {userStore} from "~/store/user.js";
+import {japanStore} from "~/store/japan_store.js";
 const dataList = ref(data);
 const currentPage = ref(1);
 const itemsPerPage = 4; // 每頁顯示數量
