@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     transpile: ['vuetify','vue-barcode-reader'],
   },
   nitro: {
-    preset: 'cloudflare' // 預設為 node-server
+    preset: 'cloudflare', // 預設為 node-server
   },
   modules: [
     (_options, nuxt) => {
