@@ -7,6 +7,8 @@
 <script setup>
 import { StreamBarcodeReader } from "vue-barcode-reader";
 let onDecode = (text) =>{
-  alert(`Decode text from QR code is ${text}`)
+  onMounted(()=>{
+    alert(`Decode text from QR code is ${text}`)
+  })
 }
 </script>

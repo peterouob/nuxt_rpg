@@ -37,12 +37,17 @@
 
   <v-dialog v-model="dialog">
     <v-card>
-      <v-card-text v-if="useJapan.wood"><h3>
-        木頭數量:{{ woodNum }}
+      <v-card-text v-if="useJapan.woodCount >= 0"><h3>
+        木頭數量：{{ woodNum }}
       </h3></v-card-text>
-      <v-card-text v-if="useJapan.yugi"><h3>
-        諭吉數量:{{yugiNum}}
+      <v-card-text v-if="useJapan.yugi >= 0"><h3>
+        諭吉數量：{{yugiNum}}
       </h3></v-card-text>
+      <v-card-text v-if="useEurope.originLiou >=0">
+        <h3>
+          原料數量：{{originLiou}}
+        </h3>
+      </v-card-text>
     </v-card>
   </v-dialog>
 
@@ -50,13 +55,16 @@
 <script setup>
 import {userStore} from "~/store/user.js";
 import {japanStore} from "~/store/japan_store.js";
+import {europeStore} from "~/store/europe_store.js";
 
 const router = useRouter()
 const useJapan = japanStore()
+const useEurope = europeStore()
 let dialog = ref(false)
 // const login = userStore()
-let woodNum = ref(0);
-let yugiNum = ref(0);
+let woodNum = ref();
+let yugiNum = ref();
+let originLiou = ref()
 let clipped = ref(false);
 let drawer = ref(false);
 let items = reactive([{
@@ -87,6 +95,11 @@ let items = reactive([{
 let miniVariant = ref(false);
 onMounted(()=>{
   woodNum = localStorage.getItem("woodCount");
+  if(woodNum === null ) woodNum = 0;
   yugiNum = localStorage.getItem("yugi");
+  if(yugiNum === null ) yugiNum = 0;
+  originLiou = localStorage.getItem("originLiou");
+  if(originLiou === null ) originLiou = 0;
+
 })
 </script>

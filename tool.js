@@ -1,7 +1,11 @@
-export function setTrueState(stateProp) {
+export function setTrueState(stateProp,type=true) {
     return function () {
         onMounted(() => {
-            this[stateProp] = true;
+            if(typeof type === 'number'){
+                this[stateProp] += type;
+            }else{
+                this[stateProp] = type;
+            }
             window.localStorage.setItem(stateProp, JSON.stringify(this[stateProp]));
         });
     };
@@ -28,7 +32,7 @@ export function setNumTrueState(stateProp,numStateProp,num) {
 
 
 // Function to check dependencies and set state
-export function setDependentState(stateProp, dependencies,type=true) {
+export function setDependentState(stateProp, dependencies,type=true, anotherStateProp) {
     return function () {
         let depValues = {};
         onBeforeMount(() => {
@@ -40,6 +44,10 @@ export function setDependentState(stateProp, dependencies,type=true) {
             if (dependencies.every((dep) => depValues[dep])) {
                 this[stateProp] = type;
                 window.localStorage.setItem(stateProp, JSON.stringify(this[stateProp]));
+                if(anotherStateProp !== 'undefined'){
+                    this[anotherStateProp] = type;
+                    window.localStorage.setItem(anotherStateProp,JSON.stringify(this[anotherStateProp]));
+                }
                 dependencies.forEach((dep) => {
                     window.localStorage.removeItem(dep);
                 });
@@ -47,7 +55,6 @@ export function setDependentState(stateProp, dependencies,type=true) {
         });
     };
 }
-
 export function setDependentNumState(stateProp,dependencies,num){
     return function () {
         let depValues = {};
@@ -74,4 +81,11 @@ export function setDependentNumState(stateProp,dependencies,num){
             }
         })
     }
+}
+
+export function goBack(){
+    const router = useRouter()
+    setTimeout(async ()=>{
+        await router.push("/")
+    },5000)
 }

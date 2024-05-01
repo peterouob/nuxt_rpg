@@ -43,7 +43,6 @@
   </v-container>
 
   <div>
-    {{useJapan.$state}}
 
   </div>
 </template>

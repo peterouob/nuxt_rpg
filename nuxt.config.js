@@ -3,9 +3,11 @@ export default defineNuxtConfig({
   //...
 
   build: {
-    transpile: ['vuetify'],
+    transpile: ['vuetify','vue-barcode-reader'],
   },
-
+  nitro: {
+    preset: 'cloudflare' // 預設為 node-server
+  },
   modules: [
     (_options, nuxt) => {
       nuxt.hooks.hook('vite:extendConfig', (config) => {

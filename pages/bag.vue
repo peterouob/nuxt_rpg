@@ -47,11 +47,6 @@
                       class="fill-height ma-0"
                       justify="center"
                   >
-                    <!--                    載入條-->
-                    <v-progress-circular
-                        color="grey lighten-5"
-                        indeterminate
-                    ></v-progress-circular>
                   </v-row>
                 </template>
               </v-img>

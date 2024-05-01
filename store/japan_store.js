@@ -6,11 +6,9 @@ export const japanStore = defineStore('japan',{
     strict: true,
     state:()=>({
         please:false, //木匠的委託單
-        graph:false,//葡萄
-        send:false,//沙子
         glasses:false,//玻璃瓶
-        wood:false,//木頭
-        swood:false,//特殊木頭
+        woodCount:0,//原木
+        swood:false,//特殊木才
         sfoodtail:false,//祈福斧頭
         fixbox:false,//修復專用工具
         foodtail:false,//一班斧頭
@@ -18,13 +16,13 @@ export const japanStore = defineStore('japan',{
         dai2:false,//崇高道德讚許2
         dai3:false,//崇高道德讚許3
         dai4:false,//崇高道德讚許4
-        giantbook:false,//劇本
+        giantbook:false,//散落的劇本
         book:false,//裝訂劇本
         avoidsun:false,//遮陽棚材料
         circleWood:false,//圓木
         breaktool:false,//壞掉工具
         tool:false,//修好得工具
-        yugi:false,//諭吉
+        yugi:0,//諭吉
         look:false,//會面單
         boliou:false,//布料
         drewhorse:false,//會碼
@@ -35,15 +33,13 @@ export const japanStore = defineStore('japan',{
         giou:false,//祭祀用酒
         gioubotal:false,//釀酒容器
 
-
-        fiveto:false,//武士刀
-        woodCount: 0,//木頭數量
+        composite:false,//合成
+        fivetwo:false,//武士刀
     }),
     actions: {
         setPlease : setTrueState("please"),
-        setGraph : setTrueState("graph"),
         setGlasses : setDependentState("glasses",["send"]),
-        setWood : setNumTrueState ("wood","woodCount",1),
+        setWood : setTrueState("woodCount",1),
         setSwood : setDependentState("swood","sfoodtail"),
         setSfoodtail : setDependentState("sfoodtail","foodtail"),
         setFixbox : setTrueState("fixbox"),
@@ -71,6 +67,7 @@ export const japanStore = defineStore('japan',{
         // 補router getOut為純回收
         removeLook : removeState("look"),
         removeBigGood : removeState("bigGood"),
-        setFiveto:setTrueState("fiveto")
+        setFivetwo:setTrueState("fivetwo"),
+        setComposite : setDependentState("composite",["woodCount"],4),
     }
 })

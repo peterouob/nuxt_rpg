@@ -10,7 +10,7 @@ export const chinaStore = defineStore('china',{
         daedeu:false,//道德經
         sofa:false,//書法用具
         cash:false,//一百貝殼幣
-        ya:false,//茶葉
+        ya:false,//茶壺
         wize:false,//藥草清單
         zerozhi:false,//靈芝
         body:false,//皇上的身體檢查舒
@@ -21,6 +21,8 @@ export const chinaStore = defineStore('china',{
         girl:false,//女蝸時
         bitfultea:false,//美人茶
         blue:false,//藍染
+        med:false,//大寶丹
+        pic:false,//合照
     }),
     actions: {
         setBlue : setTrueState("blue"),
@@ -37,7 +39,11 @@ export const chinaStore = defineStore('china',{
         setGotyou : setDependentState("gotyou",["yes","whiteyes","body"]),
         setSuccess : setDependentState("success",["gotyou"]),
         setGirl : setDependentState("girl",["success"]),
+        setbitfultea: setTrueState("bitfultea"),
+        setMed:setTrueState("med"),
         removeDaedeu:removeState("daedeu"),
-        removeYa:removeState("ya")
+        //補router
+        removeYa:removeState("ya"),
+        setPic : setTrueState("pic")
     }
 })

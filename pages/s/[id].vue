@@ -1,0 +1,95 @@
+<template>
+  <div>
+    <v-alert
+        density="compact"
+        text="好像缺少東西！"
+        title="提示"
+        type="warning"
+        v-model="dialog">
+    </v-alert>
+  </div>
+</template>
+
+<script setup>
+import "../../store/send_store.js"
+import {sendStore} from "~/store/send_store.js";
+import {chinaStore} from "~/store/china_store.js";
+import {europeStore} from "~/store/europe_store.js";
+import {japanStore} from "~/store/japan_store.js";
+import {goBack} from "~/tool.js";
+
+
+let dialog = ref(false)
+const useSend = sendStore()
+const useChina = chinaStore()
+const useEurope = europeStore()
+const useJapan = japanStore()
+const router = useRouter()
+const route = useRoute()
+let index = route.params.id
+let conditionStatisfid = ref()
+
+const methodNames = {
+  babyClue: { method: 'setBabyClue' },
+  getClue: { method: 'setClue', condition: () => useSend.peopleProve },
+  placePoint: { method: 'setPlacePoint', condition: () => useSend.pencile },
+  prove: { method: 'setProve' },
+  gotYou: {
+    method: 'setGotYou' ,
+    condition: ()=> (useSend.yanho && useSend.placePoint && useSend.dieTime)},
+  white: { method: 'setWhite' },
+  dieTime: { method: 'setDieTime',condition: ()=> (useSend.goOut)},
+  babyStone: { method: 'setBabyStone', condition: () => (useEurope.chocolate && useChina.bitfultea || useJapan.cat)},
+  dieProve: {
+    method: 'setDieProve',
+    condition: ()=> (useSend.placePoint && useSend.knife && useSend.diePeople) },
+  peopleProve: { method: 'setPeopleProve', condition: () => useSend.bigBag },
+  goOut: { method: 'setGoOut', condition: () => useSend.prove },
+  greatGoOut: { method: 'setGreatGoOut' },
+  bigBag: { method: 'setBigBag', condition: () => useSend.babyStone },
+  diePeople: { method: 'setDiePeople', condition: () => useSend.formalin },
+  formalin: {
+    method: 'setFormalin',
+    condition: () => (useSend.sweetSweating && useSend.mouthWater)
+  },
+  sweating: { method: 'setSweating' },
+  sweetSweating: { method: 'setSweetSweating', condition: () => useSend.sweating },
+  mouthWater: { method: 'setMouthWater' },
+  finger: { method: 'setFinger' },
+  lookmouth: { method: 'setLookMouth' },
+  pencile: {
+    method: 'setPencile',
+    condition: () => (useSend.lookmouth && useSend.finger)
+  },
+  sayWrong: {
+    method: 'setSayWrong',
+  },
+  knife: { method: 'setKnife', condition: () => useSend.sayWrong },
+  send: {method: 'setSend'},
+  tong: {method: 'setTong'},
+  sc: {method: 'setSc'},
+  rose: {method: 'setRose',condition: ()=>useSend.rose},
+  bodyHair: {method: 'setBodyHair'},
+  uncall: {method: 'setUncall', condition: ()=> (useSend.greatGoOut && useChina.pic)},
+  yanho: {method: 'setYanho',condition: ()=> useSend.diePeople}
+};
+
+
+const methodInfo = methodNames[index];
+
+if (methodInfo) {
+  const {method, condition} = methodInfo;
+  if(condition && method){
+    conditionStatisfid = condition();
+    conditionStatisfid ? dialog = false : dialog = true;
+    if (dialog === false){
+      useSend[method]();
+    }
+    goBack();
+  }else{
+    useSend[method]();
+    goBack();
+  }
+}
+
+</script>
