@@ -1,0 +1,8 @@
+name = "rpg-nuxt-app"
+main = "./.output/server/index.mjs"
+workers_dev = true
+
+
+[site]
+bucket = "./.output/public"
+
