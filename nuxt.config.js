@@ -1,7 +1,11 @@
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 export default defineNuxtConfig({
   //...
-
+  image: {
+    cloudflare: {
+      baseURL: 'https://rpg-nuxt-app.hellolinpeter.workers.dev'
+    }
+  },
   build: {
     transpile: ['vuetify','vue-barcode-reader'],
   },

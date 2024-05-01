@@ -40,7 +40,7 @@
             <v-card
                 class="mx-auto pb-2"
                 @click="openDialog(i)">
-              <v-img :src="data.img" height="200px">
+              <v-img :src="data.img" provider="cloudflare" height="200px"  >
                 <template v-slot:placeholder>
                   <v-row
                       align="center"
