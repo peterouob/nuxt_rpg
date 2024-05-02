@@ -6,8 +6,8 @@ export const userStore = defineStore('user',{
         isLogin  : false,
     }),
     actions: {
-        login(username,password){
-            if (username === "admin" && password === "admin") {
+        login(username){
+            if (username === "admin") {
                 this.isLogin = true
             }
         },

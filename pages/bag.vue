@@ -1,6 +1,8 @@
 <template>
   <div>
+    <Header />
   <v-container>
+    <ImageTwo />
     <v-row>
       <v-col cols="12">
         <v-row>
@@ -38,7 +40,9 @@
 <!--            特殊背包-->
             <!--            lg為大屏幕,sm為小-->
             <v-card
-                class="mx-auto pb-2"
+                style=" background-color: rgba(255, 255, 255, 0.1);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)"
+                class="mx-auto pb-2 mt-15"
                 @click="openDialog(i)">
               <v-img :src="data.img" provider="cloudflare" height="200px"  >
                 <template v-slot:placeholder>
@@ -51,7 +55,7 @@
                 </template>
               </v-img>
 
-              <v-card-title class="text-capitalize">
+              <v-card-title class="text-capitalize" style="color: #DAA520">
                 {{data.name}}
               </v-card-title>
             </v-card>
@@ -64,7 +68,8 @@
           cols="right"
       >
         <v-sheet class="pa-2 ma-2">
-          <v-btn @click="previousPage" :disabled="currentPage === 1">Prev</v-btn>
+          <v-btn @click="previousPage" :disabled="currentPage === 1" style=" background-color: rgba(255, 255, 255, 0.1);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);"><h3 style="color:#DAA520;">Prev</h3></v-btn>
         </v-sheet>
       </v-col>
       <v-col cols="left">

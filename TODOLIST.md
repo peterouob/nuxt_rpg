@@ -13,3 +13,7 @@
 - 完成歐洲邏輯
 - 補齊每個的routerCase
 - 歐洲任務資訊做成在components的，沒有等級的話會被鎖住，如果完成會跳轉到那個頁面，然後開鎖
+
+# 部署
+- sudo NITRO_PRESET=cloudflare npm run build 
+-  sudo  npx wrangler deploy   

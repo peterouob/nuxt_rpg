@@ -1,11 +1,14 @@
 <template>
   <div>
+    <Header />
+    <ImageTwo />
     <v-select
         v-model="selectedRegion"
         :items="regions"
         label="選擇地區"
         outlined
         dense
+        color="white"
     ></v-select>
 
     <div v-for="(group, index) in paginatedGroups" :key="index">
