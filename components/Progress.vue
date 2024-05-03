@@ -101,7 +101,10 @@ let cn_customColor = ref(`rgba(255, 255, 255,${cs})`)
 </script>
 
 <style scoped>
-
+h3{
+  background-color: rgba(255, 255, 255, 0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
+}
 .bg{
 
   z-index: -1;

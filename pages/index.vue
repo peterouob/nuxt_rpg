@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-main>
+   <v-main>
       <v-container fluid class="container">
         <Image />
         <v-card class=" form-card"  v-if="!user.isLogin">
@@ -197,8 +197,11 @@
           </v-card-text>
         </v-card>
       </v-container>
-
-
+      <v-dialog v-model="endDialog" class="shake-element">
+        <div>
+          <h3 style="color: #DAA520" @click="clickKnow">商人請你盡快回去找他</h3>
+        </div>
+      </v-dialog>
     </v-main>
   </v-app>
 </template>
@@ -212,11 +215,18 @@ import {sendStore} from "~/store/send_store.js";
 import Progress from "~/components/Progress.vue";
 import Legend from "~/components/Legend.vue";
 import Mission from "~/components/Mission.vue";
+import {japanStore} from "~/store/japan_store.js";
+import {chinaStore} from "~/store/china_store.js";
+import {insertData} from "~/tool.js";
+
 
 const useEroupe = europeStore()
 const useSend = sendStore()
-let username = ref("");
+const useJapan = japanStore()
+const useChina = chinaStore()
+
 const user = userStore();
+
 const router = useRouter();
 let npcdialog = ref(false);
 let Bagdialog = ref(false);
@@ -225,6 +235,38 @@ let clueDialog =ref(false);
 let progressDialog = ref(false);
 let legendDialog = ref(false);
 let missionDialog = ref(false);
+let endDialog = ref(false)
+
+let username = ref(user.name);
+let number;
+let intervalId;
+const timeRemaining = ref(0);
+
+onBeforeMount(() => {
+  if (!useEroupe.baby && !useSend.dieProve && !useJapan.cat && !useChina.girl && user.end) {
+    name = localStorage.getItem("name");
+    localStorage.setItem("timeRemaining",user.timeRemaining);
+    clearInterval(intervalId);
+    number = localStorage.getItem("timeRemaining")
+    endDialog = true;
+    insertData(name, number);
+  }
+});
+
+onMounted(()=>{
+  setInterval(() => {
+    user.timeRemaining--;
+  }, 1000);
+})
+
+let e = ref(false)
+function clickKnow(){
+  user.end = true
+  router.go(0);
+}
+
+
+
 </script>
 
 <style scoped>
@@ -246,9 +288,7 @@ html, body {
 }
 @keyframes popup {
   0% {transform: scale(0);}
-  //20% {transform: scale(1.1);}
   50% {transform: scale(0.95);}
-  //80% {transform: scale(1.05);}
   100% {transform: scale(1);}
 }
 
@@ -256,11 +296,11 @@ html, body {
   width: 400px;
   padding: 60px;
   position: absolute;
-  bottom: -100px; /* 初始位置在底部之外 */
+  bottom: -100px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
-  animation: slideInFromBottom 3.5s forwards; /* 使用動畫效果將表單從底部移動到正中間 */
+  animation: slideInFromBottom 3.5s forwards;
   background-color: rgba(255, 255, 255, 0.2);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
   border-radius: 15px;
@@ -311,13 +351,32 @@ html, body {
     opacity: 1;
   }
 }
-/* 需要額外的樣式來設置文字框和整體佈局 */
-
 
 .center-button {
   display: flex;
   justify-content: center;
 }
 
+.shake-element {
+  background-color: black;
+  animation: shake 1s infinite;
+}
 
+@keyframes shake {
+  0% {
+    transform: translateX(-5px);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 </style>

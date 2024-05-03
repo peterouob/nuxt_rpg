@@ -21,7 +21,7 @@ const login = userStore()
 *{
   padding: 0;
   margin: 0;
-  font-family:  cursive;
+  font-family: cursive;
   font-optical-sizing: auto;
   font-weight: 550;
   font-style: normal;

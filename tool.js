@@ -1,3 +1,7 @@
+import {db} from "~/firebase.client.js"
+import { collection, addDoc } from 'firebase/firestore';
+import {userStore} from "~/store/user.js";
+
 export function setTrueState(stateProp,type=true) {
     return function () {
         onMounted(() => {
@@ -88,4 +92,15 @@ export function goBack(){
     setTimeout(async ()=>{
         await router.push("/")
     },750)
+}
+
+export async function insertData(n,t) {
+    try {
+        await addDoc(collection(db, 'time'), {
+            username: n,
+            time: t
+        });
+    } catch (e) {
+        console.error('Error adding document: ', e);
+    }
 }

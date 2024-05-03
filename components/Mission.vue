@@ -70,7 +70,7 @@
 </template>
 
 <script setup>
-// 在這裡可以添加任何需要的邏輯
+
 import {europeStore} from "~/store/europe_store.js";
 let dialog = ref()
 let dialogB = ref()
@@ -82,8 +82,8 @@ const useEu = europeStore()
 <style scoped>
 .image-container {
   display: flex;
-  flex-direction: column; /* 垂直排列 */
-  align-items: center; /* 水平置中 */
+  flex-direction: column;
+  align-items: center;
 }
 
 
@@ -92,9 +92,7 @@ const useEu = europeStore()
 }
 @keyframes popup {
   0% {transform: scale(0);}
-//20% {transform: scale(1.1);}
   50% {transform: scale(0.95);}
-//80% {transform: scale(1.05);}
   100% {transform: scale(1);}
 }
 

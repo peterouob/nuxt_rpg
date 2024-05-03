@@ -38,7 +38,7 @@ export const sendStore = defineStore("send", {
         yanho:false,//豔后剪影照
 
         send_progess:0,
-        send_can_see:0.45,
+        send_can_see:1,
     }),
     actions: {
         // Define actions
