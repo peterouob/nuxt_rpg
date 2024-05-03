@@ -34,6 +34,9 @@ export const europeStore = defineStore('europe',{
         landk:false,//鐮刀和捶子
         sleep:false,//安眠藥
         friendProve:false,//牛頭人友情的象徵
+
+        eu_progess:0,
+        eu_can_see:1
     }),
     actions: {
         setLandk:setTrueState("landk"),
@@ -63,6 +66,5 @@ export const europeStore = defineStore('europe',{
         setChocolate : setTrueState("chocolate"),
         removeMaohxioun:removeState("Maohxioun"),
         setGraph : setTrueState("graph"),
-
     }
 })

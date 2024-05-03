@@ -5,8 +5,15 @@
         text="好像缺少東西！"
         title="提示"
         type="warning"
-        v-model="dialog">
+        v-if="dialog">
     </v-alert>
+    <v-alert
+        density="compact"
+        text="背包獲得道具！"
+        title="提示"
+        type="success"
+        v-if="!dialog"
+    ></v-alert>
   </div>
 </template>
 <script setup>
@@ -59,10 +66,14 @@ if (methodInfo) {
     if (dialog === false){
       useChina[method]();
     }
+    useChina.cn_progess += 5.3;
+    useChina.cn_can_see -= 0.052;
     goBack();
   }
   else{
     useChina[method]();
+    useChina.cn_progess += 5.3;
+    useChina.cn_can_see -= 0.052;
     goBack();
   }
 }

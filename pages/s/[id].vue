@@ -5,8 +5,16 @@
         text="好像缺少東西！"
         title="提示"
         type="warning"
-        v-model="dialog">
+        v-if="dialog">
     </v-alert>
+    <v-alert
+        style="background-color: black"
+        density="compact"
+        text="背包獲得道具！"
+        title="提示"
+        type="success"
+        v-if="!dialog"
+    ></v-alert>
   </div>
 </template>
 
@@ -84,10 +92,14 @@ if (methodInfo) {
     conditionStatisfid ? dialog = false : dialog = true;
     if (dialog === false){
       useSend[method]();
+      useSend.send_progess += 3.35;
+      useSend.send_can_see -= 0.03;
     }
     goBack();
   }else{
     useSend[method]();
+    useSend.send_progess += 3.3;
+    useSend.send_can_see -= 0.033;
     goBack();
   }
 }

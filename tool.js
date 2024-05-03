@@ -87,5 +87,5 @@ export function goBack(){
     const router = useRouter()
     setTimeout(async ()=>{
         await router.push("/")
-    },5000)
+    },750)
 }

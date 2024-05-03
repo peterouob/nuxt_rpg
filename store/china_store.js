@@ -23,6 +23,9 @@ export const chinaStore = defineStore('china',{
         blue:false,//藍染
         med:false,//大寶丹
         pic:false,//合照
+
+        cn_progess:0,
+        cn_can_see:1
     }),
     actions: {
         setBlue : setTrueState("blue"),

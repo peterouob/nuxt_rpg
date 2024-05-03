@@ -36,6 +36,9 @@ export const sendStore = defineStore("send", {
         sc:false,//艷後密令
         uncall:false,//撤訴書
         yanho:false,//豔后剪影照
+
+        send_progess:0,
+        send_can_see:0.45,
     }),
     actions: {
         // Define actions

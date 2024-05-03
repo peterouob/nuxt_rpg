@@ -2,17 +2,17 @@ const clueData = [
     {
         displace:process.client?JSON.parse(localStorage.getItem("clue")) : false,
         name:"線索一",
-        img:"../public/send/clue1",
+        img:"/images/clue/clue1.png",
     },
     {
         displace:process.client?JSON.parse(localStorage.getItem("clue")) : false,
         name:"線索二",
-        img:"../public/send/clue1",
+        img:"/images/clue/clue2.png",
     },
     {
         displace:process.client?JSON.parse(localStorage.getItem("clue")) : false,
         name:"線索三",
-        img:"../public/send/clue1",
+        img:"/images/clue/clue3.png",
     },
 ]
 

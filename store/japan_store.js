@@ -34,7 +34,10 @@ export const japanStore = defineStore('japan',{
         gioubotal:false,//釀酒容器
 
         composite:false,//合成
-        fivetwo:false,//武士刀
+        fiveto:false,//武士刀
+
+        jp_progess:0,
+        jp_can_see:1
     }),
     actions: {
         setPlease : setTrueState("please"),
@@ -67,7 +70,7 @@ export const japanStore = defineStore('japan',{
         // 補router getOut為純回收
         removeLook : removeState("look"),
         removeBigGood : removeState("bigGood"),
-        setFivetwo:setTrueState("fivetwo"),
+        setFivetwo:setTrueState("fiveto"),
         setComposite : setDependentState("composite",["woodCount"],4),
     }
 })
