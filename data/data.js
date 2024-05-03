@@ -311,7 +311,7 @@ const data  = [
             img: "images/avoidsun.png"
         },
         {
-            displace: process.client ? JSON.parse(localStorage.getItem("circleWood")) : false,
+            displace: process.client ? JSON.parse(localStorage.getItem("woodCount")) : false,
             place: "日本",
             name: "圓木",
             description: "似乎是這種木頭",

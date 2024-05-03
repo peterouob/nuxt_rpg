@@ -87,15 +87,6 @@ const useEu = europeStore()
 }
 
 
-.dialog_animation{
-  animation: popup 0.5s;
-}
-@keyframes popup {
-  0% {transform: scale(0);}
-  50% {transform: scale(0.95);}
-  100% {transform: scale(1);}
-}
-
 .button-container {
   display: flex;
   justify-content: center;

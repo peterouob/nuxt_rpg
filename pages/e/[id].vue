@@ -39,7 +39,7 @@ const methodNames = {
   fore: {method: 'setFore',condition: ()=> useEurope.fore},
   farmeone: { method: 'setFarmeone' },
   farmtwo: { method: 'setFarmtwo', condition: ()=> useEurope.sgay},
-  pic: { method: 'setPic'},
+  lpic: { method: 'setPic'},
   maohxioun: { method: 'setMaohxioun',condition: ()=> (useEurope.farmeone && useEurope.pic)},
   cando: { method: 'setCando' },
   smart: { method: 'setSmart' },

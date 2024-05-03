@@ -27,6 +27,15 @@ const login = userStore()
   font-style: normal;
 }
 
+.dialog_animation{
+  animation: popup 0.5s;
+}
+@keyframes popup {
+  0% {transform: scale(0);}
+  50% {transform: scale(0.95);}
+  100% {transform: scale(1);}
+}
+
 @media only screen and (max-width: 600px) {
   .form-card {
     width: 90%; /* 調整表單寬度以適應較小的螢幕 */
