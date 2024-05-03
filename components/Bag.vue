@@ -1,6 +1,14 @@
 <template>
   <div>
-  <v-container style="max-height: 800px; overflow-y: auto;">
+    <v-btn style="background-color: black" @click="sclick = !sclick"><h3 style="color: #DAA520">特殊背包</h3></v-btn>
+    <v-dialog v-model="sclick" style="background-color: black" class="dialog_animation">
+      <div >
+        <h3 style="color: white" v-if="j.woodCount">木頭數量{{j.woodCount}}</h3> <br /><br />
+        <h3 style="color: white" v-if="j.yugi">諭吉數量{{j.yugi}}</h3><br /><br />
+        <h3 style="color: white" v-if="e.originLiou">原料數量{{e.originLiou}}</h3>
+      </div>
+    </v-dialog>
+    <v-container style="max-height: 800px; overflow-y: auto;">
     <v-row>
       <v-col cols="12">
         <v-row>
@@ -83,18 +91,18 @@
 <script setup>
 import data from "../data/data.js";
 import {computed} from "vue";
-import {sendStore} from "~/store/send_store.js";
-import {userStore} from "~/store/user.js";
 import {japanStore} from "~/store/japan_store.js";
+import {europeStore} from "~/store/europe_store.js";
 const dataList = ref(data);
 const currentPage = ref(1);
 const itemsPerPage = 4; // 每頁顯示數量
 const dialog = ref(false);
 const dialogStates = ref(Array(dataList.value.length).fill(false));
-
+let sclick = ref(false)
 
 const filteredData = dataList.value.filter(item => item.displace === true);
-
+const j = japanStore()
+const e = europeStore()
 const openDialog = (index)=>{
   dialogStates.value[index] = true;
 };
