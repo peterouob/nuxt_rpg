@@ -37,7 +37,7 @@ let conditionStatisfid = ref()
 const methodNames = {
   please: { method: 'setPlease' },
   glasses: { method: 'setGlasses' ,condition : ()=> useSend.send },
-  wood: { method: 'setWood', extraAction: useJapan.woodCount += 1 },
+  woodCount: { method: 'setWood', extraAction: useJapan.woodCount += 1 },
   swood: { method: 'setSwood' ,condition: ()=> useJapan.sfoodtail},
   sfoodtail: { method: 'setSfoodtail' ,condition: ()=> useJapan.tool},
   fixbox: { method: 'setFixbox' },
