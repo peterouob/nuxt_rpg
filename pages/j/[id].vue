@@ -72,7 +72,7 @@ const methodNames = {
 
 
 const methodInfo = methodNames[index];
-
+let count = 0;
 if (methodInfo) {
   const {method, condition} = methodInfo;
   if(condition && method){
@@ -80,9 +80,9 @@ if (methodInfo) {
     conditionStatisfid ? dialog = false : dialog = true;
     if (dialog === false){
       useJapan[method]();
+      useJapan.jp_progess += 3.3;
+      useJapan.jp_can_see -= 0.033;
     }
-    useJapan.jp_progess += 3.3;
-    useJapan.jp_can_see -= 0.033;
     goBack();
   }
   else{
