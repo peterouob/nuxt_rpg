@@ -10,8 +10,8 @@
     <v-container style="max-height: 800px; overflow-y: auto;">
       <h3 @click="sclick = !sclick" style="color: #DAA520">特殊背包</h3>
       <br />
-      <v-btn  @click="nextPage" :disabled="currentPage === pageCount" v-show="paginatedData.length >= itemsPerPage" style="background-color: black"><h3 style="color:#DAA520;">Next</h3></v-btn>
       <v-btn @click="previousPage" :disabled="currentPage === 1"  style="background-color: black"><h3 style="color:#DAA520;">Prev</h3></v-btn>
+      <v-btn  @click="nextPage" :disabled="currentPage === pageCount" v-show="paginatedData.length >= itemsPerPage" style="background-color: black"><h3 style="color:#DAA520;">Next</h3></v-btn>
 
       <v-row>
         <v-col cols="12">

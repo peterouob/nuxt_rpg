@@ -24,7 +24,7 @@ export const europeStore = defineStore('europe',{
         invite:false,//王功邀請函
         beatiful:false,//彩虹寶石
         baby:false,//伊麗絲的嘆息
-        bronze:true,//青銅任務
+        bronze:false,//青銅任務
         iron:false,//白銀任務
         gold:false,//黃金任務
         relicLegend:false,//遺跡傳說
@@ -48,7 +48,7 @@ export const europeStore = defineStore('europe',{
         setMaohxioun : setDependentState("maohxioun",["farmeone","lpic"]),
         setCando : setTrueState("cando"),
         setSmart : setTrueState("smart"),
-        setMaou : setDependentState("maou",["cando","smart"]),
+        setMaou : setDependentState("bronze",["cando","smart"]),
         setTodo : setDependentState("todo",["maou"]),
         setTodoprove : setDependentState("todoprove",["bodyHair"]),
         setDorgan :setTrueState("dorgan"),
@@ -65,6 +65,7 @@ export const europeStore = defineStore('europe',{
         setrelicLegend : setTrueState("relicLegend"),
         setChocolate : setTrueState("chocolate"),
         removeMaohxioun:removeState("Maohxioun"),
+        // setBronze : setTrueState("bronze"),
         setGraph : setTrueState("graph"),
     }
 })

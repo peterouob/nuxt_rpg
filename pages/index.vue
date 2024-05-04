@@ -170,7 +170,7 @@
                 <v-dialog class="dialog_animation" v-model="clueDialog" style="background-color: black">
                   <Clue />
                 </v-dialog>
-                <v-col cols="12" class="mb-15" v-if="useEroupe.maou">
+                <v-col cols="12" class="mb-15" v-if="useEroupe.bronze">
                   <v-card
                       class="mx-auto"
                       color="surface-variant"

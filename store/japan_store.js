@@ -37,7 +37,8 @@ export const japanStore = defineStore('japan',{
         fiveto:false,//武士刀
 
         jp_progess:0,
-        jp_can_see:1
+        jp_can_see:1,
+        send: false
     }),
     actions: {
         //改
@@ -49,10 +50,10 @@ export const japanStore = defineStore('japan',{
         setSfoodtail : setDependentState("sfoodtail","foodtail"),
         setFixbox : setTrueState("fixbox"),
         setFoodtail : setTrueState("foodtail"),
-        setDai1 : setDependentState("dail1",["fixbox","sfoodtail"]),
-        setDai2 : setDependentState("dail2",["graph","glasses"]),
-        setDai3 : setDependentState("dail3",["avoidsun"]),
-        setDai4 : setDependentNumState("dail4",["boliou","blue"]),
+        setDai1 : setDependentState("dai1",["fixbox","sfoodtail"]),
+        setDai2 : setDependentState("dai2",["graph","glasses"]),
+        setDai3 : setDependentState("dai3",["avoidsun"]),
+        setDai4 : setDependentNumState("dai4",["boliou","blue"]),
         setBook : setDependentState("book",["giantbook"]),
         setGiantbook : setTrueState("giantbook"),
         setAvoidsun : setDependentState("avoidsun",["book"]),
