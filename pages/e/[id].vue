@@ -40,7 +40,7 @@ const methodNames = {
   farmeone: { method: 'setFarmeone' },
   farmtwo: { method: 'setFarmtwo', condition: ()=> useEurope.sgay},
   lpic: { method: 'setPic'},
-  maohxioun: { method: 'setMaohxioun',condition: ()=> (useEurope.farmeone && useChina.pic)},
+  maohxioun: { method: 'setMaohxioun',condition: ()=> (useEurope.farmeone && useEurope.lpic)},
   cando: { method: 'setCando' },
   smart: { method: 'setSmart' },
   maou: { method: 'setMaou', condition: ()=> (useEurope.cando && useEurope.smart )},
@@ -73,9 +73,9 @@ if (methodInfo) {
     conditionStatisfid ? dialog = false : dialog = true;
     if (dialog === false){
       useEurope[method]();
+      useEurope.eu_progess += 3.6;
+      useEurope.eu_can_see -= 0.033;
     }
-    useEurope.eu_progess += 3.6;
-    useEurope.eu_can_see -= 0.033;
     goBack();
   } else{
     useEurope[method]();

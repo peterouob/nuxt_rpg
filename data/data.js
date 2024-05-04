@@ -409,7 +409,7 @@ const data  = [
             description: "用大馬士革鋼所做的神兵利器"
         },
         {
-            displace: process.client ? JSON.parse(localStorage.getItem("topgood")) : false,
+            displace: process.client ? JSON.parse(localStorage.getItem("topgod")) : false,
             place: "中國",
             name: "皇上聖旨",
             description: "國內已分為兩派 有穿越者之協助 內部將和平一世 鬼怪皆無所遁形(藏頭)",

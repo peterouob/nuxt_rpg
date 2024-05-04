@@ -67,7 +67,6 @@ export const sendStore = defineStore("send", {
         setKnife: setDependentState("greatGoOut", ["sayWrong"]),
 
     //     補router
-        setSend:setTrueState("send"),
         setTong:setTrueState("tong"),
         setSc:setTrueState("sc"),
         setRose:setDependentState("rose",["sc"]),

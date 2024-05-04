@@ -1,6 +1,5 @@
 <template>
   <div>
-    <v-btn style="background-color: black" @click="sclick = !sclick"><h3 style="color: #DAA520">特殊背包</h3></v-btn>
     <v-dialog v-model="sclick" style="background-color: black" class="dialog_animation">
       <div >
         <h3 style="color: white" v-if="j.woodCount">木頭數量{{j.woodCount}}</h3> <br /><br />
@@ -9,9 +8,14 @@
       </div>
     </v-dialog>
     <v-container style="max-height: 800px; overflow-y: auto;">
-    <v-row>
-      <v-col cols="12">
-        <v-row>
+      <h3 @click="sclick = !sclick" style="color: #DAA520">特殊背包</h3>
+      <br />
+      <v-btn  @click="nextPage" :disabled="currentPage === pageCount" v-show="paginatedData.length >= itemsPerPage" style="background-color: black"><h3 style="color:#DAA520;">Next</h3></v-btn>
+      <v-btn @click="previousPage" :disabled="currentPage === 1"  style="background-color: black"><h3 style="color:#DAA520;">Prev</h3></v-btn>
+
+      <v-row>
+        <v-col cols="12">
+          <v-row>
           <v-col
               v-for="(data,i) in paginatedData"
               :key="i"
@@ -67,20 +71,6 @@
             </v-card>
           </v-col>
         </v-row>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col class="me-auto"
-          cols="right"
-      >
-        <v-sheet class="pa-2 ma-2"  style="background-color: black">
-          <v-btn @click="previousPage" :disabled="currentPage === 1"><h3 style="color:#DAA520;">Prev</h3></v-btn>
-        </v-sheet>
-      </v-col>
-      <v-col cols="left">
-        <v-sheet class="pa-2 ma-2 ml-16" style="background-color: black">
-          <v-btn  @click="nextPage" :disabled="currentPage === pageCount" v-show="paginatedData.length >= itemsPerPage"><h3 style="color:#DAA520;">Next</h3></v-btn>
-        </v-sheet>
       </v-col>
     </v-row>
   </v-container>

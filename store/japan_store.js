@@ -40,6 +40,8 @@ export const japanStore = defineStore('japan',{
         jp_can_see:1
     }),
     actions: {
+        //改
+        setSend:setTrueState("send"),
         setPlease : setTrueState("please"),
         setGlasses : setDependentState("glasses",["send"]),
         setWood : setTrueState("woodCount",1),

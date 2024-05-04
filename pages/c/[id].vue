@@ -36,15 +36,15 @@ let conditionStatisfid = ref()
 let dialog = ref()
 const methodNames = {
   blue: {method: 'setBlue'},
-  topgood: { method: 'setTopgood' },
+  topgod: { method: 'setTopgood' },
   daedeu: { method: 'setDaedeu' },
-  sofa: { method: 'setSofa' },
+  sofa: { method: 'setsofa' },
   cash: { method: 'setCash' },
   ya: { method: 'setYa' ,condition: ()=> useChina.cash },
   wize: { method: 'setWize' },
   zerozhi: { method: 'setZerozhi' },
   body: { method: 'setBody' ,condition: ()=>(useEurope.fore && useSend.rose && useChina.zerozhi)},
-  whiteyes: { method: 'setWhiteyes',condition: ()=>useJapan.fivetwo},
+  whiteyes: { method: 'setWhiteyes',condition: ()=>useJapan.fiveto},
   yes: { method: 'setYes',condition: ()=>useChina.sofa},
   gotyou: { method: 'setGotyou' ,condition: ()=>(useChina.yes && useChina.whiteyes && useChina.body)},
   success: { method: 'setSuccess' , condition: ()=> useChina.gotyou},
@@ -65,9 +65,9 @@ if (methodInfo) {
     conditionStatisfid ? dialog = false : dialog = true;
     if (dialog === false){
       useChina[method]();
+      useChina.cn_progess += 5.3;
+      useChina.cn_can_see -= 0.052;
     }
-    useChina.cn_progess += 5.3;
-    useChina.cn_can_see -= 0.052;
     goBack();
   }
   else{

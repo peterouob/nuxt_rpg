@@ -73,13 +73,14 @@ const methodNames = {
     method: 'setSayWrong',
   },
   knife: { method: 'setKnife', condition: () => useSend.sayWrong },
-  send: {method: 'setSend'},
   tong: {method: 'setTong'},
   sc: {method: 'setSc'},
-  rose: {method: 'setRose',condition: ()=>useSend.rose},
+  rose: {method: 'setRose',condition: ()=> useSend.sc},
   bodyHair: {method: 'setBodyHair'},
   uncall: {method: 'setUncall', condition: ()=> (useSend.greatGoOut && useChina.pic)},
-  yanho: {method: 'setYanho',condition: ()=> useSend.diePeople}
+  yanho: {method: 'setYanho',condition: ()=> useSend.diePeople},
+
+  // 有問題
 };
 
 
