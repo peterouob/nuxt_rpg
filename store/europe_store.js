@@ -49,7 +49,7 @@ export const europeStore = defineStore('europe',{
         setCando : setTrueState("cando"),
         setSmart : setTrueState("smart"),
         setMaou : setDependentState("bronze",["cando","smart"]),
-        setTodo : setDependentState("todo",["maou"]),
+        setTodo : setDependentState("todo",["bronze"]),
         setTodoprove : setDependentState("todoprove",["bodyHair"]),
         setDorgan :setTrueState("dorgan"),
         setDrogangay : setTrueState("drogangay"),

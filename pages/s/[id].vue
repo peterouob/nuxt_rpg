@@ -46,11 +46,14 @@ const methodNames = {
     method: 'setGotYou' ,
     condition: ()=> (useSend.yanho && useSend.placePoint && useSend.dieTime)},
   white: { method: 'setWhite' },
+  //補qrcode->完成
+  clue : {method: 'setClue',condition: ()=> useSend.peopleProve},
   dieTime: { method: 'setDieTime',condition: ()=> (useSend.goOut)},
   babyStone: { method: 'setBabyStone', condition: () => (useEurope.chocolate && useChina.bitfultea || useJapan.cat)},
   dieProve: {
     method: 'setDieProve',
-    condition: ()=> (useSend.placePoint && useSend.knife && useSend.diePeople) },
+    // 詭異的刀有砍 - 修 | 完成
+    condition: ()=> (useSend.placePoint && useSend.yanho && useSend.dieTime) },
   peopleProve: { method: 'setPeopleProve', condition: () => useSend.bigBag },
   goOut: { method: 'setGoOut', condition: () => useSend.prove },
   greatGoOut: { method: 'setGreatGoOut' },
