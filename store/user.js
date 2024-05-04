@@ -10,7 +10,7 @@ export const userStore = defineStore('user',{
     }),
     actions: {
         login(username){
-            if (username === "admin") {
+            if (username !== "") {
                 this.isLogin = true;
                 localStorage.setItem("name",username)
             }
