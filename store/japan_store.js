@@ -46,8 +46,10 @@ export const japanStore = defineStore('japan',{
         setPlease : setTrueState("please"),
         setGlasses : setDependentState("glasses",["send"]),
         setWood : setTrueState("woodCount",1),
-        setSwood : setDependentState("swood","foodtail"),
-        // setSfoodtail : setDependentState("sfoodtail","foodtail"),
+
+        setSwood : setDependentState("swood",["sfoodtail"]),
+        setSfoodtail : setDependentState("sfoodtail",["foodtail"]),
+
         setFixbox : setTrueState("fixbox"),
         setFoodtail : setTrueState("foodtail"),
         setDai1 : setDependentState("dai1",["fixbox","swood"]),

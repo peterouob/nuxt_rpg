@@ -624,7 +624,7 @@ const data  = [
             place: "歐洲",
             name: "歐洲進口巧克力",
             description: "比狗迪馬還好吃的巧克力",
-            img: "images/chocolate.png"
+            img: "images/chocolate.jpeg"
         },
         {
             displace: process.client ? JSON.parse(localStorage.getItem("farmeone")) : false,

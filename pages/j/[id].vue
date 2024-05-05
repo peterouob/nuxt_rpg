@@ -14,6 +14,13 @@
         type="success"
         v-if="!dialog"
     ></v-alert>
+
+    <v-dialog v-model="keyDialog" style="background-color: black" class="dialog_animation">
+      <div>
+        <h3 style="color: red">打開寶物的鑰匙被烏鴉叼走了 <br /><br />
+            趕快詢問附近的居民有沒有鑰匙的下落</h3>
+      </div>
+    </v-dialog>
   </div>
 </template>
 
@@ -33,16 +40,17 @@ const useSend = sendStore()
 const useEurope = europeStore()
 const useChina = chinaStore()
 let conditionStatisfid = ref()
+let keyDialog = ref()
 
 const methodNames = {
   please: { method: 'setPlease' },
   glasses: { method: 'setGlasses' ,condition : ()=> useJapan.send },
-  woodCount: { method: 'setWood', extraAction: useJapan.woodCount += 1 },
-  swood: { method: 'setSwood' ,condition: ()=> useJapan.foodtail},
-  // sfoodtail: { method: 'setSfoodtail' ,condition: ()=> useJapan.foodtail},
+  woodCount: { method: 'setWood',  extraAction: () => { if (useJapan.woodCount) useJapan.woodCount += 1; } },
+  swood: { method: 'setSwood' ,condition: ()=> useJapan.sfoodtail},
+  sfoodtail: { method: 'setSfoodtail' ,condition: ()=> useJapan.foodtail},
   fixbox: { method: 'setFixbox' },
   foodtail: { method: 'setFoodtail' },
-  dai1: { method: 'setDai1' , condition: ()=> (useJapan.fixbox && useJapan.sfoodtail)},
+  dai1: { method: 'setDai1' , condition: ()=> (useJapan.fixbox && useJapan.swood)},
   dai2: { method: 'setDai2' , condition: ()=> (useEurope.graph && useJapan.glasses)},
   dai3: { method: 'setDai3' , condition: ()=> useJapan.avoidsun},
   dai4: { method: 'setDai4' , condition: ()=> (useJapan.boliou && useChina.blue)},
@@ -75,21 +83,27 @@ const methodNames = {
 const methodInfo = methodNames[index];
 let count = 0;
 if (methodInfo) {
-  const {method, condition} = methodInfo;
-  if(condition && method){
+  const { method, condition, extraAction } = methodInfo; // 添加extraAction的解構賦值
+  if (condition && method) {
     conditionStatisfid = condition();
     conditionStatisfid ? dialog = false : dialog = true;
-    if (dialog === false){
+    method === "bigGood" ? keyDialog = true :  keyDialog = false;
+    if (dialog === false) {
       useJapan[method]();
-      useJapan.jp_progess += 3.3;
-      useJapan.jp_can_see -= 0.033;
+      if (count === 0) { // 只在第一次成功觸發時執行以下程式碼
+        useJapan.jp_progess += 3.3;
+        useJapan.jp_can_see -= 0.033;
+        count++;
+      }
     }
     goBack();
-  }
-  else{
+  } else {
     useJapan[method]();
-    useJapan.jp_progess += 3.3;
-    useJapan.jp_can_see -= 0.033;
+    if (count === 0) { // 只在第一次成功觸發時執行以下程式碼
+      useJapan.jp_progess += 3.3;
+      useJapan.jp_can_see -= 0.033;
+      count++;
+    }
     goBack();
   }
 }
