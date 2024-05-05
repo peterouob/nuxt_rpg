@@ -50,7 +50,7 @@ export const japanStore = defineStore('japan',{
         // setSfoodtail : setDependentState("sfoodtail","foodtail"),
         setFixbox : setTrueState("fixbox"),
         setFoodtail : setTrueState("foodtail"),
-        setDai1 : setDependentState("dai1",["fixbox","sfoodtail"]),
+        setDai1 : setDependentState("dai1",["fixbox","swood"]),
         setDai2 : setDependentState("dai2",["graph","glasses"]),
         setDai3 : setDependentState("dai3",["avoidsun"]),
         //error
@@ -63,7 +63,7 @@ export const japanStore = defineStore('japan',{
         setYugi : setDependentState("yugi",["please","tool"],2),
         setLook : setDependentNumState("look",["yugi"],1),
         setBoliou : setDependentNumState("boliou",["yugi"],1),
-        serewhorse : setDependentNumState("drewhorse",["dail1","dail2","dail3","dail4"]),
+        setDrewhorse : setDependentNumState("drewhorse",["dai1","dai2","dai3","dai4"]),
         setBigGood : setDependentNumState("bigGood",["drewhorse"]),
         setKey : setTrueState("key"),
         setRice : setDependentNumState("rice",["key"]),
