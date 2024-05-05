@@ -47,7 +47,7 @@ export const sendStore = defineStore("send", {
         setPlacePoint: setDependentState("placePoint", ["pencile"]),
         setProve: setTrueState("prove"),
         setGotYou: setDependentState("gotYou",["yanho","placePoint","dieTime"]),
-        setWhite: setTrueState("white"),
+        setWhite: setDependentState("white",["uncall"]),
         setDieTime: setDependentState("dieTime",["goOut"]),
         setBabyStone: setDependentState("babyStone", ["chocolate", "cat", "bitfultea"]),
         setDieProve: setDependentState("dieProve", ["placePoint", "knife", "diePeople"]),

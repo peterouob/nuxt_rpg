@@ -45,7 +45,7 @@ const methodNames = {
   gotYou: {
     method: 'setGotYou' ,
     condition: ()=> (useSend.yanho && useSend.placePoint && useSend.dieTime)},
-  white: { method: 'setWhite' },
+  white: { method: 'setWhite',condition: ()=>useSend.uncall },
   //補qrcode->完成
   clue : {method: 'setClue',condition: ()=> useSend.peopleProve},
   dieTime: { method: 'setDieTime',condition: ()=> (useSend.goOut)},
