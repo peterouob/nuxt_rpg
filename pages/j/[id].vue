@@ -15,12 +15,13 @@
         v-if="!dialog"
     ></v-alert>
 
-    <v-dialog v-model="keyDialog" style="background-color: black" class="dialog_animation">
+    <v-dialog v-if="keyDialog" style="background-color: black" class="dialog_animation">
       <div>
         <h3 style="color: red">打開寶物的鑰匙被烏鴉叼走了 <br /><br />
             趕快詢問附近的居民有沒有鑰匙的下落</h3>
       </div>
     </v-dialog>
+
   </div>
 </template>
 
@@ -40,6 +41,8 @@ const useSend = sendStore()
 const useEurope = europeStore()
 const useChina = chinaStore()
 let conditionStatisfid = ref()
+
+// TODO:跳動畫
 let keyDialog = ref()
 
 const methodNames = {
@@ -66,7 +69,7 @@ const methodNames = {
   look: { method: 'setLook', condition: ()=> useJapan.yugi > 1 },
   boliou: { method: 'setBoliou',condition: ()=> useJapan.yugi > 1 },
   drewhorse: { method: 'setDrewhorse',condition: ()=> (useJapan.dai1 && useJapan.dai2 && useJapan.dai3 && useJapan.dai4 ) },
-  bigGood: { method: 'setBigGood',condition: ()=>useJapan.drewhorse },
+  bigGood: { method: 'setBigGood' },
   send: {method: 'setSend'},
   key: { method: 'setKey' },
   rice: { method: 'setRice',condition: ()=> useJapan.rice },
@@ -79,6 +82,9 @@ const methodNames = {
   rmBigGood: {method: 'removeBigGood'}
 };
 
+onBeforeMount(()=>{
+  index === "bigGood" ? keyDialog =true : keyDialog = false;
+})
 
 const methodInfo = methodNames[index];
 let count = 0;
@@ -87,7 +93,6 @@ if (methodInfo) {
   if (condition && method) {
     conditionStatisfid = condition();
     conditionStatisfid ? dialog = false : dialog = true;
-    method === "bigGood" ? keyDialog = true :  keyDialog = false;
     if (dialog === false) {
       useJapan[method]();
       if (count === 0) { // 只在第一次成功觸發時執行以下程式碼

@@ -48,8 +48,9 @@ const methodNames = {
   todoprove: {method:'setTodoprove',condition: ()=> useSend.bodyHair},
   dorgan: { method: 'setDorgan' },
   drogangay: { method: 'setDrogangay' },
-  drogAndBaby: { method: 'setStoneAndBaby',condition: ()=> (useEurope.dorgan && useEurope.drogangay)},
-  originLiou: { method: 'setOriginLiou',extraAction: useEurope.originLiou += 1},
+  //
+  droganbaby: { method: 'setStoneAndBaby',condition: ()=> (useEurope.dorgan && useEurope.drogangay)},
+  originLiou: { method: 'setOriginLiou',extraAction: () => {if (useEurope.originLiou) useEurope.originLiou += 1}},
   friendProve: {method: 'setFriendProve',condition: ()=> useEurope.originLiou > 5},
   sgay: { method: 'setSgay' ,condition: ()=>useEurope.originLiou > 8},
   invite: { method: 'setInvite' ,condition: ()=> (useEurope.droganbaby && useEurope.farmtwo)},

@@ -25,7 +25,7 @@ export const japanStore = defineStore('japan',{
         yugi:0,//諭吉
         look:false,//會面單
         boliou:false,//布料
-        drewhorse:false,//會碼
+        drewhorse:true,//會碼
         bigGood:false,//大吉籤
         key:false,//寶庫鑰匙
         rice:false,//阿托米克
@@ -65,10 +65,10 @@ export const japanStore = defineStore('japan',{
         setYugi : setDependentState("yugi",["please","tool"],2),
         setLook : setDependentNumState("look",["yugi"],1),
         setBoliou : setDependentNumState("boliou",["yugi"],1),
-        setDrewhorse : setDependentNumState("drewhorse",["dai1","dai2","dai3","dai4"]),
-        setBigGood : setDependentNumState("bigGood",["drewhorse"]),
+        setDrewhorse : setDependentState("drewhorse",["dai1","dai2","dai3","dai4"]),
+        setBigGood : setDependentState("bigGood",["drewhorse"]),
         setKey : setTrueState("key"),
-        setRice : setDependentNumState("rice",["key"]),
+        setRice : setDependentState("rice",["key"]),
         setCat : setDependentState("cat",["giou"]),
         setGiou : setDependentState("giou",["gioubotal"]),
         setGioubotal:setTrueState("gioubotal"),
