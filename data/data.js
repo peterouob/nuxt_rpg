@@ -11,7 +11,7 @@ const data  = [
             displace: process.client ? JSON.parse(localStorage.getItem("stone")) : false,
             place: "send",
             name:"遺跡石板",
-            img:"/images/mission/Istone.jpg",
+            img:"/images/mission/lstone.jpg",
             description:
                 "似乎是個很重要的東西"
         },

@@ -68,7 +68,7 @@ export const sendStore = defineStore("send", {
 
     //     補router
         setTong:setTrueState("tong"),
-        setSc:setTrueState("sc"),
+        setSc:setDependentState("sc",["tong"]),
         setRose:setDependentState("rose",["sc"]),
         setBodyHair:setTrueState("bodyHair"),
         setUncall:setDependentState("uncall",["greatGoOut",["pic"]]),

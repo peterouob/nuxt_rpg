@@ -51,8 +51,8 @@ const methodNames = {
   //
   droganbaby: { method: 'setStoneAndBaby',condition: ()=> (useEurope.dorgan && useEurope.drogangay)},
   originLiou: { method: 'setOriginLiou',extraAction: () => {if (useEurope.originLiou) useEurope.originLiou += 1}},
-  friendProve: {method: 'setFriendProve',condition: ()=> useEurope.originLiou > 5},
-  sgay: { method: 'setSgay' ,condition: ()=>useEurope.originLiou > 8},
+  friendProve: {method: 'setFriendProve',condition: ()=> useEurope.originLiou >= 5},
+  sgay: { method: 'setSgay' ,condition: ()=>(useEurope.originLiou >= 8 && useEurope.friendProve)},
   invite: { method: 'setInvite' ,condition: ()=> (useEurope.droganbaby && useEurope.farmtwo)},
   beatiful: { method: 'setBeatiful' ,condition: ()=> useEurope.invite},
   baby: {method:'setBaby',condition: ()=> (useEurope.beatiful && useJapan.composite) },

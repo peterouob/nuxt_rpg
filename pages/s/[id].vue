@@ -77,7 +77,7 @@ const methodNames = {
   },
   knife: { method: 'setKnife', condition: () => useSend.sayWrong },
   tong: {method: 'setTong'},
-  sc: {method: 'setSc'},
+  sc: {method: 'setSc',condition: ()=>useSend.tong},
   rose: {method: 'setRose',condition: ()=> useSend.sc},
   bodyHair: {method: 'setBodyHair'},
   uncall: {method: 'setUncall', condition: ()=> (useSend.greatGoOut && useChina.pic)},
