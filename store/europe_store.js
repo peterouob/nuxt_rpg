@@ -49,7 +49,7 @@ export const europeStore = defineStore("europe", {
     setSleep: setDependentState("sleep", ["landk"]),
     setFore: setDependentState("fore", ["sleep"]),
     setFarmeone: setTrueState("farmeone"),
-    setFarmtwo: setDependentState("farmtwo", ["sgay"]),
+    setFarmtwo: setTrueState("farmtwo"),
     setPic: setTrueState("lpic"),
     setMaohxioun: setDependentState("maohxioun", ["farmeone", "lpic"]),
     setCando: setTrueState("cando"),
@@ -78,5 +78,8 @@ export const europeStore = defineStore("europe", {
     removeMaohxioun: removeState("Maohxioun"),
     // setBronze : setTrueState("bronze"),
     setGraph: setTrueState("graph"),
+
+    //原為china
+    setPic: setTrueState("pic"),
   },
 });
