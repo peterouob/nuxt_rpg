@@ -714,7 +714,7 @@ const data = [
     place: "歐洲",
     name: "神秘的棍杖",
     description: "牛頭人給予的禮物，有著神秘複雜的雕刻，上方似乎有個鑲嵌槽...",
-    img: "images/sgay.png",
+    img: "images/sgay.jpg",
   },
   {
     displace: process.client

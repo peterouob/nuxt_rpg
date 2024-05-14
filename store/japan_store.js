@@ -45,6 +45,7 @@ export const japanStore = defineStore("japan", {
     jp_progess: 0,
     jp_can_see: 1,
     send: false,
+    bird: false,
   }),
   actions: {
     //改
