@@ -43,6 +43,8 @@ export const europeStore = defineStore("europe", {
 
     eu_progess: 0,
     eu_can_see: 1,
+
+    pic: false, //合照，原中國，ＡＰＰ特別放
   }),
   actions: {
     setLandk: setTrueState("landk"),

@@ -37,7 +37,7 @@ const data = [
   },
   {
     displace: process.client
-      ? JSON.parse(localStorage.getItem("gotyou"))
+      ? JSON.parse(localStorage.getItem("gotYouDail"))
       : false,
     place: "埃及",
     name: "逮捕令",

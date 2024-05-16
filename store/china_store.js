@@ -22,7 +22,6 @@ export const chinaStore = defineStore("china", {
     bitfultea: false, //美人茶
     blue: false, //藍染
     med: false, //大寶丹
-    pic: false, //合照
 
     cn_progess: 0,
     cn_can_see: 1,

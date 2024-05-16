@@ -295,17 +295,24 @@ const timeRemaining = ref(0);
 
 onBeforeMount(() => {
     if (
-        !useEroupe.baby &&
-        !useSend.dieProve &&
-        !useJapan.cat &&
-        !useChina.girl &&
-        user.end
+        useEroupe.baby &&
+        useSend.dieProve &&
+        useJapan.cat &&
+        useChina.girl &&
+        !user.end
     ) {
         name = localStorage.getItem("name");
         localStorage.setItem("timeRemaining", user.timeRemaining);
         clearInterval(intervalId);
         number = localStorage.getItem("timeRemaining");
         endDialog = true;
+        insertData(name, number);
+    }
+
+    if (useEroupe.baby | useSend.dieProve | useJapan.cat | useChina.girl) {
+        name = localStorage.getItem("name");
+        localStorage.setItem("timeRemaining", user.timeRemaining);
+        number = localStorage.getItem("timeRemaining");
         insertData(name, number);
     }
 });
