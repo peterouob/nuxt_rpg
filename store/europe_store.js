@@ -52,7 +52,7 @@ export const europeStore = defineStore("europe", {
     setFore: setDependentState("fore", ["sleep"]),
     setFarmeone: setTrueState("farmeone"),
     setFarmtwo: setTrueState("farmtwo"),
-    setPic: setTrueState("lpic"),
+    setLPic: setTrueState("lpic"),
     setMaohxioun: setDependentState("maohxioun", ["farmeone", "lpic"]),
     setCando: setTrueState("cando"),
     setSmart: setTrueState("smart"),

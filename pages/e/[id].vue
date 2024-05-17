@@ -40,7 +40,7 @@ const methodNames = {
     fore: { method: "setFore", condition: () => useEurope.sleep },
     farmeone: { method: "setFarmeone" },
     farmtwo: { method: "setFarmtwo", condition: () => useEurope.sgay },
-    lpic: { method: "setPic" },
+    lpic: { method: "setLPic" },
     maohxioun: {
         method: "setMaohxioun",
         condition: () => useEurope.farmeone && useEurope.lpic,
@@ -96,22 +96,29 @@ const methodNames = {
 };
 
 const methodInfo = methodNames[index];
-
+let count = 0;
 if (methodInfo) {
     const { method, condition, extraAction } = methodInfo;
     if (condition && method) {
         conditionStatisfid = condition();
         conditionStatisfid ? (dialog = false) : (dialog = true);
         if (dialog === false) {
-            useEurope[method]();
-            useEurope.eu_progess += 3.6;
-            useEurope.eu_can_see -= 0.033;
+            if (count === 0) {
+                useEurope[method]();
+                useEurope.eu_progess += 3.6;
+                useEurope.eu_can_see -= 0.033;
+                count++;
+            }
         }
         goBack();
     } else {
         useEurope[method]();
-        useEurope.eu_progess += 3.6;
-        useEurope.eu_can_see -= 0.033;
+        if (count === 0) {
+            useEurope[method]();
+            useEurope.eu_progess += 3.6;
+            useEurope.eu_can_see -= 0.033;
+            count++;
+        }
         goBack();
     }
 }
