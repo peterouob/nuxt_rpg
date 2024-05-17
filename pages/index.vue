@@ -249,7 +249,7 @@
             </v-container>
             <v-dialog v-model="endDialog" class="shake-element">
                 <div>
-                    <h3 style="color: #daa520" @click="clickKnow">
+                    <h3 style="endfont" @click="clickKnow">
                         商人請你盡快回去找他
                     </h3>
                 </div>
@@ -294,13 +294,11 @@ let intervalId;
 const timeRemaining = ref(0);
 
 onBeforeMount(() => {
-    if (
-        useEroupe.baby &&
-        useSend.dieProve &&
-        useJapan.cat &&
-        useChina.girl &&
-        !user.end
-    ) {
+    let baby = localStorage.getItem("baby");
+    let dieProve = localStorage.getItem("dieProve");
+    let rice = localStorage.getItem("rice");
+    let girl = localStorage.getItem("girl");
+    if (baby && dieProve && rice && girl && !user.end) {
         name = localStorage.getItem("name");
         localStorage.setItem("timeRemaining", user.timeRemaining);
         clearInterval(intervalId);
@@ -308,14 +306,29 @@ onBeforeMount(() => {
         endDialog = true;
         insertData(name, number);
     }
+});
 
-    if (useEroupe.baby | useSend.dieProve | useJapan.cat | useChina.girl) {
+const checkConditionsAndInsertData = () => {
+    if (useEroupe.baby || useSend.dieProve || useJapan.rice || useChina.girl) {
         name = localStorage.getItem("name");
-        localStorage.setItem("timeRemaining", user.timeRemaining);
+        localStorage.setItem("timeRemaining", timeRemaining);
         number = localStorage.getItem("timeRemaining");
         insertData(name, number);
     }
-});
+};
+
+// 監聽這些變量的變化，並在變化時執行條件檢查
+watch(
+    [
+        () => useEroupe.baby,
+        () => useSend.dieProve,
+        () => useJapan.rice,
+        () => useChina.girl,
+    ],
+    ([newBaby, newDieProve, newRice, newGirl]) => {
+        checkConditionsAndInsertData();
+    },
+);
 
 onMounted(() => {
     setInterval(() => {
@@ -379,7 +392,7 @@ body {
 
 .glass-panel {
     width: 400px;
-    //padding: 300px;
+    /*padding: 300px; */
     height: 550px;
     position: absolute;
     bottom: -100px; /* 初始位置在底部之外 */
@@ -410,6 +423,7 @@ body {
 
 .shake-element {
     background-color: black;
+    position: relative;
     animation: shake 1s infinite;
 }
 
@@ -429,5 +443,10 @@ body {
     100% {
         transform: translateX(0);
     }
+}
+.endfont {
+    color: red;
+    position: absolute;
+    right: 50%;
 }
 </style>

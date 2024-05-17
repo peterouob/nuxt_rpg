@@ -13,6 +13,6 @@ export const options = {
 };
 
 export default function () {
-  http.get("https://rpg-nuxt-app.hellolinpeter.workers.dev");
+  http.get("https://rpg-nuxt-app.hellolinpeter.workers.dev/woodCount");
   sleep(1);
 }

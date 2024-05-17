@@ -91,7 +91,7 @@ const data = [
     place: "埃及",
     name: "寶物（死者蘇生的法器）",
     img: "/images/dieProve.jpeg",
-    description: "如果說要存放秘密的話，被東西壓著或許必較難發現",
+    description: "如果說要藏東西的話，被東西壓著或許必較難發現，",
   },
   {
     displace: process.client

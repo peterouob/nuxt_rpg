@@ -6,5 +6,8 @@ compatibility_date = "2024-05-01"
 [placement]
 mode = "smart"
 
+[limits]
+cpu_ms = 10000
+
 [site]
 bucket = "./.output/public"

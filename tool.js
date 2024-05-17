@@ -130,3 +130,14 @@ export async function insertData(n, t) {
     console.error("Error adding document: ", e);
   }
 }
+
+export async function insertOneData(n, t) {
+  try {
+    await addDoc(collection(db, "baby"), {
+      username: n,
+      time: t,
+    });
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+}
