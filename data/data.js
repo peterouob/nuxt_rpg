@@ -91,7 +91,7 @@ const data = [
     place: "埃及",
     name: "寶物（死者蘇生的法器）",
     img: "/images/dieProve.jpeg",
-    description: "如果說要藏東西的話，被東西壓著或許必較難發現，",
+    description: "如果說要藏東西的話，被東西壓著或許比較難發現，",
   },
   {
     displace: process.client
@@ -632,7 +632,7 @@ const data = [
   {
     displace: process.client ? JSON.parse(localStorage.getItem("baby")) : false,
     name: "伊麗絲的嘆息",
-    description: "如果要藏東西的話，有個能夠反射經過人的地方，比較能觀察四處",
+    description: "如果要藏東西的話，放在類似隧道的地方應該不錯",
     img: "images/spider.jpg",
   },
   {
