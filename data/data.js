@@ -91,7 +91,7 @@ const data = [
     place: "埃及",
     name: "寶物（死者蘇生的法器）",
     img: "/images/dieProve.jpeg",
-    description: "似乎和死者蘇生有關係，如果可以復活的話，或許地點在{}比較好",
+    description: "如果說要存放秘密的話，被東西壓著或許必較難發現",
   },
   {
     displace: process.client
@@ -466,8 +466,8 @@ const data = [
   {
     displace: process.client ? JSON.parse(localStorage.getItem("rice")) : false,
     place: "日本",
-    name: "寶物(阿托米克)",
-    description: "不知道",
+    name: "阿托米克",
+    description: "如果要藏東西的話，我喜歡藏在中間的地方",
     img: "images/rice.png",
   },
   {
@@ -602,14 +602,14 @@ const data = [
       : false,
     place: "中國",
     name: "抓捕成功的證明",
-    description: "圖片(一個人被綁著躺在地上)",
+    description: "抓到囉HEHE",
     img: "/images/success.JPG",
   },
   {
     displace: process.client ? JSON.parse(localStorage.getItem("girl")) : false,
     place: "中國",
     name: "女媧石",
-    description: "仁無國的鎮國之寶，只有仁無國的皇上所信任之人才有資格碰觸。",
+    description: "如果要藏東西的話，放在最多人經過的地方或許最安全",
     img: "/images/girl.JPG",
   },
   {
@@ -632,7 +632,7 @@ const data = [
   {
     displace: process.client ? JSON.parse(localStorage.getItem("baby")) : false,
     name: "伊麗絲的嘆息",
-    description: "這次不會再被教授聽到黏黏的了",
+    description: "如果要藏東西的話，有個能夠反射經過人的地方，比較能觀察四處",
     img: "images/spider.jpg",
   },
   {

@@ -26,3 +26,7 @@
 - git commit -m "fix/frat:[msg]"
 - git push origin
 - git log
+
+# 性能測試 格里芬cloud , k6
+
+- k6 cloud/run script.js
