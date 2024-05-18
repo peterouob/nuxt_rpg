@@ -88,18 +88,40 @@ const useEurope = europeStore();
 
 let sp = useSend.send_progess;
 let ss = useSend.send_can_see;
+if(useSend.dieProve === true){
+    sp = 100;
+    ss = 0.1;
+}
+if(sp >= 100)sp=100;
 let send_customColor = ref(`rgba(255, 255, 255,${ss})`);
 
 let jp = useJapan.jp_progess;
 let js = useJapan.jp_can_see;
+if(useJapan.rice === true){
+    jp = 100;
+    js = 0.1;
+}
+if(jp >= 100)jp=100;
 let japan_customColor = ref(`rgba(255, 255, 255,${js})`);
+
 
 let ep = useEurope.eu_progess;
 let es = useEurope.eu_can_see;
+if(useEurope.baby === true){
+    ep = 100;
+    es = 0.1;
+}
+if(ep >= 100) ep = 100;
 let eu_customColor = ref(`rgba(255, 255, 255,${es})`);
+
 
 let cp = useChina.cn_progess;
 let cs = useChina.cn_can_see;
+if (useChina.girl === true) {
+    cp = 100;
+    cs = 0.1;
+}
+if(cp >= 100) cp = 100;
 let cn_customColor = ref(`rgba(255, 255, 255,${cs})`);
 // 其他進度條的數據
 </script>
@@ -121,28 +143,28 @@ h3 {
 }
 
 .send-universe-progress {
-    //--custom-color: rgba(255, 255, 255);
+    --custom-color: rgba(255, 255, 255);
     background-color: v-bind(send_customColor);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
 }
 
 .eu-universe-progress {
-    //--custom-color: rgba(255, 255, 255);
+    --custom-color: rgba(255, 255, 255);
     background-color: v-bind(eu_customColor);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
 }
 
 .jp-universe-progress {
-    //--custom-color: rgba(255, 255, 255);
+    --custom-color: rgba(255, 255, 255);
     background-color: v-bind(japan_customColor);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
 }
 
 .cn-universe-progress {
-    //--custom-color: rgba(255, 255, 255);
+    --custom-color: rgba(255, 255, 255);
     background-color: v-bind(cn_customColor);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;

@@ -46,6 +46,12 @@ const methodNames = {
             if (useJapan.woodCount) useJapan.woodCount += 1;
         },
     },
+    circleWood: {
+        method: "setWood",
+        extraAction: () => {
+            if (useJapan.woodCount) useJapan.woodCount += 1;
+        },
+    },
     swood: { method: "setSwood", condition: () => useJapan.sfoodtail },
     sfoodtail: { method: "setSfoodtail", condition: () => useJapan.foodtail },
     fixbox: { method: "setFixbox" },
@@ -87,14 +93,14 @@ const methodNames = {
     },
     send: { method: "setSend" },
     key: { method: "setKey" },
-    rice: { method: "setRice", condition: () => useJapan.rice },
+    rice: { method: "setRice", condition: () => useJapan.key },
     cat: { method: "setCat", condition: () => useJapan.giou },
     giou: { method: "setGiou", condition: () => useJapan.gioubotal },
     gioubotal: { method: "setGioubotal" },
     fiveto: { method: "setFivetwo" },
     composite: {
         method: "setComposite",
-        condition: () => useJapan.woodCount > 4,
+        condition: () => useJapan.woodCount >= 4,
     },
     rmLook: { method: "removeLook" },
     rmBigGood: { method: "removeBigGood" },

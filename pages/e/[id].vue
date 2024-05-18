@@ -51,7 +51,7 @@ const methodNames = {
         method: "setMaou",
         condition: () => useEurope.cando && useEurope.smart,
     },
-    todo: { method: "setTodo", condition: () => useEurope.maou },
+    todo: { method: "setTodo"},
     todoprove: { method: "setTodoprove", condition: () => useSend.bodyHair },
     dorgan: { method: "setDorgan" },
     drogangay: { method: "setDrogangay" },

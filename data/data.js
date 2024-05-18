@@ -246,11 +246,13 @@ const data = [
       : false,
     name: "艷后剪影",
     img: "/images/yanho.jpeg",
+    description: "感覺這照片怪怪的",
   },
   {
     displace: process.client ? JSON.parse(localStorage.getItem("tong")) : false,
     name: "臨時通行證",
     img: "/images/tong.jpeg",
+    description: "比戰旗的通行證還有用",
   },
   {
     displace: process.client
@@ -358,12 +360,12 @@ const data = [
   },
   {
     displace: process.client
-      ? JSON.parse(localStorage.getItem("synthesisPlatform"))
+      ? JSON.parse(localStorage.getItem("composite"))
       : false,
     place: "日本",
     name: "合成台",
     img: "images/synthesisPlatform.jpeg",
-    description: "上面有3*3的格子，在工匠手上可以合成無數的東西",
+    description: "上面有3*3的格子,在工匠手上可以合成無數的東西",
   },
   {
     displace: process.client

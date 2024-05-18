@@ -38,7 +38,7 @@ const npc_data = [
   {
     place: "仁無國",
     name: "管仲",
-    img: "/images/npc/",
+    img: "/images/npc/30.jpeg",
     description: "仁家的現任當家，靠著自身能力被孔子所期待之人",
   },
   {

@@ -62,7 +62,6 @@ export const japanStore = defineStore("japan", {
     setDai1: setDependentState("dai1", ["fixbox", "swood"]),
     setDai2: setDependentState("dai2", ["graph", "glasses"]),
     setDai3: setDependentState("dai3", ["avoidsun"]),
-    //error
     setDai4: setDependentState("dai4", ["boliou", "blue"]),
     setBook: setDependentState("book", ["giantbook"]),
     setGiantbook: setTrueState("giantbook"),

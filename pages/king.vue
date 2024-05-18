@@ -3,7 +3,7 @@
 <template>
     <v-container class="letter-container">
         <div class="letter-content">
-            <h1>勇敢的冒險者</h1>
+            <h1>救世主</h1>
             <p>
                 當你看到這封信的時候，我應該已經離開了，不要去相信商人的話，他的目的是統一這個分裂的王國
             </p>
