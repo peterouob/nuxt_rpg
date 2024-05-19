@@ -41,7 +41,6 @@ export const chinaStore = defineStore("china", {
     setGotyou: setDependentState("gotyou", ["yes", "whiteyes", "body"]),
     setSuccess: setDependentState("success", ["gotyou"]),
     setGirl: setDependentState("girl", ["success"]),
-    setbitfultea: setTrueState("bitfultea"),
     setMed: setTrueState("med"),
     removeDaedeu: removeState("daedeu"),
     //補router

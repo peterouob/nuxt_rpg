@@ -38,41 +38,25 @@ let index = route.params.id;
 let conditionStatisfid = ref();
 
 const methodNames = {
-    babyClue: { method: "setBabyClue" },
-    getClue: { method: "setClue", condition: () => useSend.peopleProve },
+    getClue: { method: "setClue"},
     placePoint: { method: "setPlacePoint", condition: () => useSend.pencile },
     prove: { method: "setProve" },
-    gotyou: {
+    gotYou: {
         method: "setGotYou",
-        condition: () => useSend.yanho && useSend.placePoint && useSend.dieTime,
+        condition: () => useSend.diePeople && useSend.placePoint && useSend.dieTime,
     },
     white: { method: "setWhite", condition: () => useSend.uncall },
     //補qrcode->完成
-    clue: { method: "setClue", condition: () => useSend.peopleProve },
     dieTime: { method: "setDieTime", condition: () => useSend.goOut },
-    babyStone: {
-        method: "setBabyStone",
-        condition: () =>
-            useEurope.chocolate && useChina.bitfultea && useJapan.cat,
-    },
     dieProve: {
         method: "setDieProve",
         // 詭異的刀有砍 - 修 | 完成
         condition: () => useSend.white,
     },
-    peopleProve: { method: "setPeopleProve", condition: () => useSend.bigBag },
     goOut: { method: "setGoOut", condition: () => useSend.prove },
-    greatGoOut: { method: "setGreatGoOut" },
-    bigBag: { method: "setBigBag", condition: () => useSend.babyStone },
     diePeople: { method: "setDiePeople", condition: () => useSend.formalin },
     formalin: {
         method: "setFormalin",
-        condition: () => useSend.sweetSweating && useSend.mouthWater,
-    },
-    sweating: { method: "setSweating" },
-    sweetSweating: {
-        method: "setSweetSweating",
-        condition: () => useSend.sweating,
     },
     mouthWater: { method: "setMouthWater" },
     finger: { method: "setFinger" },
@@ -81,19 +65,13 @@ const methodNames = {
         method: "setPencile",
         condition: () => useSend.lookmouth && useSend.finger,
     },
-    sayWrong: {
-        method: "setSayWrong",
-    },
-    tong: { method: "setTong" },
-    sc: { method: "setSc", condition: () => useSend.tong },
-    rose: { method: "setRose", condition: () => useSend.sc },
+    clue:{method:"setClue"},
+    rose: { method: "setRose"},
     bodyHair: { method: "setBodyHair" },
     uncall: {
         method: "setUncall",
-        condition: () => useSend.greatGoOut && useEurope.pic,
+        condition: () => useEurope.pic,
     },
-    yanho: { method: "setYanho", condition: () => useSend.diePeople },
-
     // 有問題
 };
 

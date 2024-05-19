@@ -8,6 +8,7 @@
             v-if="dialog"
         >
         </v-alert>
+<!--      背包獲得-->
         <v-alert
             density="compact"
             text="背包獲得道具！"

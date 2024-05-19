@@ -49,10 +49,11 @@ export const japanStore = defineStore("japan", {
   }),
   actions: {
     //改
+    setRice: setDependentState("rice",["dai1","dai2","dai3","dai4"]),
     setSend: setTrueState("send"),
     setPlease: setTrueState("please"),
     setGlasses: setDependentState("glasses", ["send"]),
-    setWood: setTrueState("woodCount", 1),
+    setWood: setTrueState("woodCount", 10),
 
     setSwood: setDependentState("swood", ["sfoodtail"]),
     setSfoodtail: setDependentState("sfoodtail", ["foodtail"]),
@@ -68,19 +69,12 @@ export const japanStore = defineStore("japan", {
     setAvoidsun: setDependentState("avoidsun", ["book"]),
     setBreaktool: setDependentNumState("breaktool", ["woodCount"], 3),
     setTool: setDependentState("tool", ["breaktool"]),
-    setYugi: setDependentState("yugi", ["please", "tool"], 2),
+
+    setYugi: setDependentState("yugi", ["please", "tool"], 10),
+    setSyugi : setTrueState("yugi",10),
+
     setLook: setDependentNumState("look", ["yugi"], 1),
     setBoliou: setDependentNumState("boliou", ["yugi"], 1),
-    setDrewhorse: setDependentState("drewhorse", [
-      "dai1",
-      "dai2",
-      "dai3",
-      "dai4",
-    ]),
-    setBigGood: setDependentState("bigGood", ["drewhorse"]),
-    setKey: setTrueState("key"),
-    setRice: setDependentState("rice", ["key"]),
-    setCat: setDependentState("cat", ["giou"]),
     setGiou: setDependentState("giou", ["gioubotal"]),
     setGioubotal: setTrueState("gioubotal"),
 

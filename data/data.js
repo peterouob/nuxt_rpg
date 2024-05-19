@@ -72,7 +72,7 @@ const data = [
       : false,
     place: "埃及",
     name: "死亡時間",
-    img: "/images/dieTime.jpg",
+    img: "/images/dieTime.jpeg",
     description: "上面有著法老死亡多久的時間",
   },
   {
@@ -90,8 +90,8 @@ const data = [
       : false,
     place: "埃及",
     name: "寶物（死者蘇生的法器）",
-    img: "/images/dieProve.jpeg",
-    description: "如果說要藏東西的話，被東西壓著或許比較難發現，",
+    img: "/images/dieProve.jpg",
+    description: "如果說要藏東西的話，可以記錄歷史的地方",
   },
   {
     displace: process.client
@@ -238,7 +238,7 @@ const data = [
       : false,
     description: "唉唷威雅抓錯人了",
     name: "撤訴書",
-    img: "/images/撤訴書.gif",
+    img: "/images/uncall.gif",
   },
   {
     displace: process.client
@@ -429,7 +429,7 @@ const data = [
     place: "日本",
     name: "會面單",
     description: "批准穿越者與家主會面\n\t批准人：荻士霓垃垣",
-    img: "images/look.jpeg",
+    img: "images/look.jpg",
   },
   {
     displace: process.client
@@ -469,8 +469,8 @@ const data = [
     displace: process.client ? JSON.parse(localStorage.getItem("rice")) : false,
     place: "日本",
     name: "阿托米克",
-    description: "如果要藏東西的話，我喜歡藏在中間的地方",
-    img: "images/rice.png",
+    description: "如果要藏東西的話，我喜歡藏在容易取得水源的地方",
+    img: "images/rice.jpg",
   },
   {
     displace: process.client ? JSON.parse(localStorage.getItem("cat")) : false,
@@ -521,7 +521,7 @@ const data = [
     place: "中國",
     name: "道德經",
     description: "孔子的所有物，據說是為了世仇(老子)而特製的應對手法大全",
-    img: "/images/daedeu.png",
+    img: "/images/daedeu.JPG",
   },
   {
     displace: process.client ? JSON.parse(localStorage.getItem("pic")) : false,
@@ -547,8 +547,8 @@ const data = [
     displace: process.client ? JSON.parse(localStorage.getItem("ya")) : false,
     place: "中國",
     name: "茶壺",
-    description: "阿里山上姑娘所產的茶葉",
-    img: "/images/ya.png",
+    description: "陶土做的茶壺" ,
+    img: "/images/ya.JPG",
   },
   {
     displace: process.client ? JSON.parse(localStorage.getItem("wize")) : false,
@@ -611,8 +611,8 @@ const data = [
     displace: process.client ? JSON.parse(localStorage.getItem("girl")) : false,
     place: "中國",
     name: "女媧石",
-    description: "如果要藏東西的話，放在最多人經過的地方或許最安全",
-    img: "/images/girl.JPG",
+    description: "？？？：如果要藏東西的話，我交給拿木棍的傢伙保管了，你去問問看他",
+    img: "/images/girl.jpg",
   },
   {
     displace: process.client
@@ -627,14 +627,14 @@ const data = [
     displace: process.client
       ? JSON.parse(localStorage.getItem("maohxioun"))
       : false,
-    name: "國家及冒險委託書",
-    description: "超級委託書",
+    name: "國家級冒險委託書",
+    description: "與一般的委託書沒啥不同，但有著國王親筆簽名與皇室火漆章",
     img: "images/maohxioun.jpg",
   },
   {
     displace: process.client ? JSON.parse(localStorage.getItem("baby")) : false,
     name: "伊麗絲的嘆息",
-    description: "如果要藏東西的話，放在類似隧道的地方應該不錯",
+    description: "？？？：如果要藏東西的話，我一定會交給聰明的人",
     img: "images/spider.jpg",
   },
   {
@@ -648,13 +648,13 @@ const data = [
       ? JSON.parse(localStorage.getItem("friendProve"))
       : false,
     name: "牛頭人友情的象徵",
-    description: "這代表我們間的友情",
+    description: "象徵著你與牛頭人的友情，展示給他看就會帶你離開遺跡",
     img: "images/friendProve.jpg",
   },
   {
     displace: process.client ? JSON.parse(localStorage.getItem("lpic")) : false,
     name: "遺跡照片",
-    description: "上面怎麼好像寫著雲*樓",
+    description: "上面怎麼好像寫著雲*樓，可以當作出事的證據",
     img: "images/lpic.png",
   },
 
@@ -715,7 +715,7 @@ const data = [
     displace: process.client ? JSON.parse(localStorage.getItem("sgay")) : false,
     place: "歐洲",
     name: "神秘的棍杖",
-    description: "牛頭人給予的禮物，有著神秘複雜的雕刻，上方似乎有個鑲嵌槽...",
+    description: "有著神秘複雜的雕刻，傳說會散發邪惡力量?上方似乎有個鑲嵌槽...",
     img: "images/sgay.jpg",
   },
   {
@@ -733,7 +733,7 @@ const data = [
       : false,
     place: "歐洲",
     name: "彩虹寶石",
-    description: "散發著燦爛奪目的光芒，有種吸引人目光的魔力...",
+    description: "散發著燦爛奪目的光芒，傳說會散發邪惡力量?好像可以鑲嵌在什麼東西上...",
     img: "images/beatiful.png",
   },
   {
@@ -767,7 +767,7 @@ const data = [
       ? JSON.parse(localStorage.getItem("farmeone"))
       : false,
     name: "作物收成表1",
-    description: "上面記載著農作物的資訊，但好像怪怪的",
+    description: "上面記載著農作物的資訊，但好像怪怪的，可以當作出事的證據．",
     img: "images/farmeone.jpg",
   },
   {

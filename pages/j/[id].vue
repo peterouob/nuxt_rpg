@@ -81,10 +81,23 @@ const methodNames = {
         method: "setYugi",
         condition: () => useJapan.please && useJapan.tool,
     },
-    look: { method: "setLook", condition: () => useJapan.yugi > 1 },
-    boliou: { method: "setBoliou", condition: () => useJapan.yugi > 1 },
-    drewhorse: {
-        method: "setDrewhorse",
+    //作弊
+    syugi :{
+        method: "setSyugi"
+    },
+    look: { method: "setLook", 
+    condition: () => useJapan.yugi >= 1 ,
+    extraAction:()=>{
+        useJapan.yugi -= 1
+    }
+},
+    boliou: { method: "setBoliou", condition: () => useJapan.yugi >= 1,
+      extraAction:()=>{
+          useJapan.yugi -= 1
+      }
+    },
+    rice: {
+        method: "setRice",
         condition: () =>
             useJapan.dai1 && useJapan.dai2 && useJapan.dai3 && useJapan.dai4,
     },
@@ -92,11 +105,6 @@ const methodNames = {
         method: "setBigGood",
     },
     send: { method: "setSend" },
-    key: { method: "setKey" },
-    rice: { method: "setRice", condition: () => useJapan.key },
-    cat: { method: "setCat", condition: () => useJapan.giou },
-    giou: { method: "setGiou", condition: () => useJapan.gioubotal },
-    gioubotal: { method: "setGioubotal" },
     fiveto: { method: "setFivetwo" },
     composite: {
         method: "setComposite",
@@ -108,6 +116,7 @@ const methodNames = {
 
 const methodInfo = methodNames[index];
 let count = 0;
+let item = ref("")
 if (methodInfo) {
     const { method, condition, extraAction } = methodInfo; // 添加extraAction的解構賦值
     if (condition && method) {
@@ -115,6 +124,9 @@ if (methodInfo) {
         conditionStatisfid ? (dialog = false) : (dialog = true);
         if (dialog === false) {
             useJapan[method]();
+            if(extraAction){
+              extraAction()
+            }
             if (count === 0) {
                 // 只在第一次成功觸發時執行以下程式碼
                 useJapan.jp_progess += 3.3;

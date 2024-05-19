@@ -7,13 +7,13 @@
         >
             <div>
                 <h3 style="color: white" v-if="j.woodCount">
-                    木頭數量{{ j.woodCount }}
+                    木頭數量{{ woodCount }}
                 </h3>
                 <br /><br />
-                <h3 style="color: white" v-if="j.yugi">諭吉數量{{ j.yugi }}</h3>
+                <h3 style="color: white" v-if="j.yugi">諭吉數量{{ yugi }}</h3>
                 <br /><br />
                 <h3 style="color: white" v-if="e.originLiou">
-                    原料數量{{ e.originLiou }}
+                    原料數量{{ originLiou }}
                 </h3>
             </div>
         </v-dialog>
@@ -100,6 +100,8 @@
             </v-row>
         </v-container>
     </div>
+  <br><br><br><br><br>
+
 </template>
 
 <script setup>
@@ -109,7 +111,7 @@ import { japanStore } from "~/store/japan_store.js";
 import { europeStore } from "~/store/europe_store.js";
 const dataList = ref(data);
 const currentPage = ref(1);
-const itemsPerPage = 4; // 每頁顯示數量
+const itemsPerPage = 10; // 每頁顯示數量
 const dialog = ref(false);
 const dialogStates = ref(Array(dataList.value.length).fill(false));
 let sclick = ref(false);
@@ -144,6 +146,15 @@ const previousPage = () => {
 const nextPage = () => {
     currentPage.value++;
 };
+
+let originLiou;
+let woodCount;
+let yugi;
+onMounted(()=>{
+   originLiou = localStorage.getItem("originLiou")
+   woodCount = localStorage.getItem("woodCount")
+   yugi = localStorage.getItem("yugi")
+})
 </script>
 
 <style scoped></style>

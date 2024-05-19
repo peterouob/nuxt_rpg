@@ -247,13 +247,6 @@
                     </v-card-text>
                 </v-card>
             </v-container>
-            <v-dialog v-model="endDialog" class="shake-element">
-                <div>
-                    <h3 style="endfont" @click="clickKnow">
-                        商人請你盡快回去找他
-                    </h3>
-                </div>
-            </v-dialog>
         </v-main>
     </v-app>
 </template>
@@ -269,7 +262,7 @@ import Legend from "~/components/Legend.vue";
 import Mission from "~/components/Mission.vue";
 import { japanStore } from "~/store/japan_store.js";
 import { chinaStore } from "~/store/china_store.js";
-import { insertData } from "~/tool.js";
+import { insertData,insertOneData } from "~/tool.js";
 
 const useEroupe = europeStore();
 const useSend = sendStore();
@@ -300,20 +293,20 @@ onBeforeMount(() => {
     let girl = localStorage.getItem("girl");
     if (baby && dieProve && rice && girl && !user.end) {
         name = localStorage.getItem("name");
-        localStorage.setItem("timeRemaining", user.timeRemaining);
-        clearInterval(intervalId);
-        number = localStorage.getItem("timeRemaining");
-        endDialog = true;
-        insertData(name, number);
+      localStorage.setItem("timeRemaining", user.timeRemaining);
+      clearInterval(intervalId);
+      number = localStorage.getItem("timeRemaining");
+      endDialog = true;
+      insertData(name, number);
+      router.push("/end")
     }
 });
 
 const checkConditionsAndInsertData = () => {
     if (useEroupe.baby || useSend.dieProve || useJapan.rice || useChina.girl) {
-        name = localStorage.getItem("name");
-        localStorage.setItem("timeRemaining", timeRemaining);
-        number = localStorage.getItem("timeRemaining");
-        insertData(name, number);
+        name = user.name;
+        number = user.timeRemaining;
+        insertOneData(name, number);
     }
 };
 
@@ -330,17 +323,13 @@ watch(
     },
 );
 
-onMounted(() => {
-    setInterval(() => {
-        user.timeRemaining--;
-    }, 1000);
-});
+// onMounted(() => {
+//     setInterval(() => {
+//         user.timeRemaining--;
+//     }, 1000);
+// });
 
 let e = ref(false);
-function clickKnow() {
-    user.end = true;
-    router.go(0);
-}
 </script>
 
 <style scoped>
@@ -421,32 +410,5 @@ body {
     justify-content: center;
 }
 
-.shake-element {
-    background-color: black;
-    position: relative;
-    animation: shake 1s infinite;
-}
 
-@keyframes shake {
-    0% {
-        transform: translateX(-5px);
-    }
-    25% {
-        transform: translateX(5px);
-    }
-    50% {
-        transform: translateX(-5px);
-    }
-    75% {
-        transform: translateX(5px);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
-.endfont {
-    color: red;
-    position: absolute;
-    right: 50%;
-}
 </style>

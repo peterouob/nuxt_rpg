@@ -9,10 +9,14 @@ export const userStore = defineStore('user',{
         timeRemaining:3*60*60,
     }),
     actions: {
+        // 設定條件只限隊名才登入
         login(username){
             if (username !== "") {
                 this.isLogin = true;
-                localStorage.setItem("name",username)
+                localStorage.setItem("name",username);
+                setInterval(()=>{
+                    this.timeRemaining -= 1;
+                },1000)
             }
         },
     },

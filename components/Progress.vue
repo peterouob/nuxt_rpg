@@ -93,6 +93,7 @@ if(useSend.dieProve === true){
     ss = 0.1;
 }
 if(sp >= 100)sp=100;
+if(sp >= 100 && !useSend.dieProve)sp =99
 let send_customColor = ref(`rgba(255, 255, 255,${ss})`);
 
 let jp = useJapan.jp_progess;
@@ -102,6 +103,7 @@ if(useJapan.rice === true){
     js = 0.1;
 }
 if(jp >= 100)jp=100;
+if(jp >= 100 && ! useJapan.rice) jp = 99;
 let japan_customColor = ref(`rgba(255, 255, 255,${js})`);
 
 
@@ -112,6 +114,7 @@ if(useEurope.baby === true){
     es = 0.1;
 }
 if(ep >= 100) ep = 100;
+if(ep >= 100 && !useEurope.baby)ep=99;
 let eu_customColor = ref(`rgba(255, 255, 255,${es})`);
 
 
@@ -122,6 +125,7 @@ if (useChina.girl === true) {
     cs = 0.1;
 }
 if(cp >= 100) cp = 100;
+if(cp >= 100 && !useChina.girl ) cp = 99;
 let cn_customColor = ref(`rgba(255, 255, 255,${cs})`);
 // 其他進度條的數據
 </script>
@@ -177,9 +181,6 @@ h3 {
     transform: translate(-50%, -50%);
     color: black;
     font-size: 24px;
-}
-
-.universe-progress-bar {
 }
 
 @keyframes pulse {

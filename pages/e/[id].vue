@@ -36,8 +36,7 @@ let conditionStatisfid = ref();
 let dialog = ref();
 const methodNames = {
     landk: { method: "setLandk" },
-    sleep: { method: "setSleep", condition: () => useEurope.landk },
-    fore: { method: "setFore", condition: () => useEurope.sleep },
+    fore: { method: "setFore" },
     farmeone: { method: "setFarmeone" },
     farmtwo: { method: "setFarmtwo", condition: () => useEurope.sgay },
     lpic: { method: "setLPic" },
@@ -56,23 +55,32 @@ const methodNames = {
     dorgan: { method: "setDorgan" },
     drogangay: { method: "setDrogangay" },
     //
-    droganbaby: {
+    stone: {
         method: "setStoneAndBaby",
         condition: () => useEurope.dorgan && useEurope.drogangay,
     },
+  droganbaby:{
+      method: "setDroganbaby",
+  },
     originLiou: {
         method: "setOriginLiou",
         extraAction: () => {
-            if (useEurope.originLiou) useEurope.originLiou += 1;
+            useEurope.originLiou += 1;
         },
     },
     friendProve: {
         method: "setFriendProve",
         condition: () => useEurope.originLiou >= 5,
+      extraAction:()=>{
+          useEurope.originLiou -= 5
+      }
     },
     sgay: {
         method: "setSgay",
         condition: () => useEurope.originLiou >= 8 && useEurope.friendProve,
+      extraAction:()=>{
+          useEurope.originLiou -= 8
+      }
     },
     invite: {
         method: "setInvite",
